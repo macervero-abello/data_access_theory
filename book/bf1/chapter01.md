@@ -1,0 +1,1 @@
+# Els patrons de disseny de software
