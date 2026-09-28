@@ -1,0 +1,24 @@
+@startuml
+
+class SaleReceipt {
+    - ArrayList<ReceiptLine> lines;
+    - float discount;
+    - LocalDate date;
+    - LocalTime hour;
+}
+
+class ReceiptLine {
+    - Product product;
+    - int quantity;
+}
+
+class Product {
+    - String name;
+    - float price;
+    - float taxes;
+}
+
+Product -l-* ReceiptLine
+ReceiptLine -l-*SaleReceipt
+
+@enduml

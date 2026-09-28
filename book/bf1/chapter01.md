@@ -39,11 +39,12 @@ Cal tenir en compte que, en alguns casos, la POO i una arquitectura de sotware m
 
 Aquest capítol tracta els següents coneixements:
 * Patró d'assignació de responsabilitats *Expert*
+* Patró d'assignació de responsabilitats *Creator*
 * Patró d'assignació de responsabilitats *Controller*
 * Patró clàssic de creació *Factory Method*
 * Aquitectura MVC
 
-## GRASP (*General Responsibility Assignment Software Patterns)
+## GRASP (*General Responsibility Assignment Software Patterns*)
 L'objectiu principal dels principis GRAPS és aconseguir el mínim acoblament i la màxima cohesió en el codi implementat.
 
 **Acoblament**: dependència que existeix entre les diferents classes/objectes que formen part del codi. Si dues classes (o objectes) estan acoblades vol dir que estan connectades, que tenen coneixement o que depenen l'una de l'altra. Això passa si:
@@ -58,14 +59,14 @@ Si el codi implementat no gestiona correctament l'acoblament entre les classes, 
 
 La cohesió afavoreix la col·laboració entre les classes (delegació de tasques).
 
-## Patró d'assignació de responsabilitats *Expert*
+### Patró d'assignació de responsabilitats *Expert*
 El Patró *Expert* indica que cada classe/objecte és responsable de fer els càlculs per als quals té la informació necessària. És a dir, la classe (o l'objecte) és l'experta en informació i, per tant, és la responsable d'operar (mètodes) les seves dades (atributs). Dit d'una altra manera, cada classe/objecte té els mètodes necessaris que permeten operar els atributs que emmagatzema.
 
 Si una classe (o un objecte) no té totes les dades necessàries per poder executar un dels seus mètodes es diu que és una *experta parcial en informació* i, per tant, haurà de col·laborar amb els objectes dels seus propis atributs, és a dir, haurà de delegar els càlculs als objectes que formen part dels seus atributs.
 
 Aquest patró genera un baix desacoblament en el codi, perquè permet mantenir un molt bon encapsulament dels objectes i saber, clarament, qui pot donar resposta a les diverses necessitats i càlculs. A més a més, també n'augmenta la cohesió, perquè ajuda a fer una bona representació del món real dins del codi, distribuïnt el comportament entre les classes i facilitant la delegació de tasques (col·laboració).
 
-**TODO EXEMPLE**
+![Diagrama UML d'exemple](img/ch01/expert_uml_example.png "Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*")
 
 
 {% hint style="info" %}
