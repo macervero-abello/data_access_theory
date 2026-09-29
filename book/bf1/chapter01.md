@@ -42,6 +42,7 @@ Aquest capítol tracta els següents coneixements:
 * Patró d'assignació de responsabilitats *Creator*
 * Patró d'assignació de responsabilitats *Controller*
 * Patró clàssic de creació *Factory Method*
+* Patró *Data Access Object* (DAO)
 * Aquitectura MVC
 
 ## GRASP (*General Responsibility Assignment Software Patterns*)
@@ -102,4 +103,23 @@ Analitzant la seva definició, es pot veure que l'aplicació del patró *Creator
 **Exercici**
 
 Recuperant l'exercici anterior, qui és el responsable de crear instàncies de la classe `ReceiptLine`? Implementa el constructor per defecte que creguis més adequat.
+{% endhint %}
+
+### Patró d'assignació de responsabilitats *Controller*
+El Patró *Controller* s'encarrega de definir la classe/objecte encarregada de gestionar els esdeveniments del sistema, és a dir, les instruccions rebudes a través de la interacció amb l'usuari. El seu objectiu principal és desacoblar la interfície gràfica (qui interactua amb l'usuari) de la lògica de negoci, de tal manera que qualsevol canvi a la interfície gràfica no afecti al nucli (*core) del programa.
+
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/mvc.png" width="100%" alt="Aplicació del Patró *Controller* per separar la interfície gràfica de la lògica de negoci">
+        <figcaption><p>Aplicació del Patró *Controller* per separar la interfície gràfica de la lògica de negoci</p></figcaption>
+    </figure>
+</div>
+
+
+
+{% hint style="info" %}
+**Informació.**
+
+El patró d'assignació de responsabilitats *Controller* és el precusor de l'arquitectura *Model-View-Controller* (MVC) 
 {% endhint %}
