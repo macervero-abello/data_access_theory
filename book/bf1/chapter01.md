@@ -74,7 +74,7 @@ El patró d'assignació de responsabilitats *Expert* està molt relacionat amb e
 
 
 {% hint style="warning" icon="pen" %}
-**Exercici 1**
+**Exercici**
 
 Donat el diagrama de classes UML que es mostra a continuació, cal declarar i implementar tots els mètodes necessaris per poder assolir la funcionalitat *obtenir el total del tiquet de la compra*. El llenguatge que s'ha d'utilitzar és Java.
 
@@ -89,6 +89,17 @@ Atenció, només s'han d'implementar els mètodes estrictament necessaris. A mé
 {% endhint %}
 
 ### Patró d'assignació de responsabilitats *Creator*
+El Patró *Creator* indica quina classe és la responsable de crear una nova instància d'una altra classe i es regeix per les normes següents:
+1. La classe `A` té un atribut de la classe `B`, `A` serà responsable de crear la instància de `B`.
+2. La classe `A` utilitza objectes de la classe `B` (per exemple, com a variables locals o retorn dels seus mètodes), `A` serà responsable de crear la instància de `B`.
+3. Si la classe `A` té les dades d'inicialització per crear objectes de la classe `B`, `A` serà responsable de crear la instància de `B`.
 
+En cas d'empat entre diverses possibilitats, es dóna preferència a la primera opció (la classe `A` té un atribut de la classe `B`).
 
+Analitzant la seva definició, es pot veure que l'aplicació del patró *Creator* implica, directament, la del patró *Expert*: la classe que crea una instància ho fa perquè és l'experta, la que gestiona les dades per poder-ho fer.
 
+{% hint style="warning" icon="pen" %}
+**Exercici**
+
+Recuperant l'exercici anterior, qui és el responsable de crear instàncies de la classe `ReceiptLine`? Implementa el constructor per defecte que creguis més adequat.
+{% endhint %}
