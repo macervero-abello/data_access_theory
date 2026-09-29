@@ -106,8 +106,11 @@ Recuperant l'exercici anterior, qui és el responsable de crear instàncies de l
 {% endhint %}
 
 ### Patró d'assignació de responsabilitats *Controller*
-El Patró *Controller* s'encarrega de definir la classe/objecte encarregada de gestionar els esdeveniments del sistema, és a dir, les instruccions rebudes a través de la interacció amb l'usuari. El seu objectiu principal és desacoblar la interfície gràfica (qui interactua amb l'usuari) de la lògica de negoci, de tal manera que qualsevol canvi a la interfície gràfica no afecti al nucli (*core) del programa.
+El Patró *Controller* s'encarrega de definir la classe/objecte encarregada de gestionar els esdeveniments del sistema, és a dir, les instruccions rebudes a través de la interacció amb l'usuari. El seu objectiu principal és desacoblar la interfície gràfica (qui interactua amb l'usuari; *view*) de la lògica de negoci (*controller* i *model*), de tal manera que qualsevol canvi a la interfície gràfica no afecti al nucli (*core*) del programa.
 
+Pel que fa als canvis dins del *core*, afectaran, o no, a la interfície gràfica depenent de quina sigui la seva naturalesa:
+* Canvis per a corregir errors: no haurien d'afectar a no ser que impliquin algun canvi en com es volen mostrar les dades a l'usuari
+* Canvis per ampliar les funcionalitats: afectaran la interfície gràfica perquè s'haurà de crear noves pantalles o noves eines d'interacció per poder cridar aquestes noves funcionalitats
 
 <div data-with-frame="true">
     <figure>
@@ -116,10 +119,39 @@ El Patró *Controller* s'encarrega de definir la classe/objecte encarregada de g
     </figure>
 </div>
 
+El *Controller* és el *cervell* que gestiona tot el sistema:
+1. Exposa a la *View* totes les funcionalitats de les quals disposa (d'això se'n diu *interface*)
+2. Captura els esdeveniments del sistema (els esdeveniments que activa l'usuari durant la seva interacció amb la interfície gràfica)
+3. Transforma aquests esdeveniments del sistema en operacions del sistema, delegant al *Model* els càlculs necessaris per donar resposta a les peticions
 
+Per escollir el millor *Controller* per al programa cal analitzar-ne la seva mida, és a dir, el nombre total de funcionalitats que tindrà el *software*.
+* En cas d'una aplicació petita amb un conjunt reduït de funcionalitats s'escollirà la classe que representa tot el sistema global. D'això se n'anomena *Facade Controller* i està relacionat amb el patró clàssic *Facade*.
+* Si l'aplicació és molt gran i té múltiples mòduls o casos d'ús, es crearan diversos "Use-Case Controller" (un *controller* per cada cas d'ús de l'aplicació) per mantenir un l'acoblament baix i una cohesió alta.
 
 {% hint style="info" %}
 **Informació.**
 
 El patró d'assignació de responsabilitats *Controller* és el precusor de l'arquitectura *Model-View-Controller* (MVC) 
+{% endhint %}
+
+{% hint style="warning" icon="pen" %}
+**Exercici**
+
+Recuperant el problema anterior, cal afegir-hi les operacions de sistema següents:
+1. `createNewSale()`
+2. `addProductTo(barcode, quantity)`
+3. `endSale()`
+4. `paySale(money)`
+
+Això es pot fer utilitzant un *Facade Controller* (per exemple, `SaleTerminal` o `Shop`) o un *Use-Case Controller* (per exemple, `SalesController`). En aquest exercici es proposa crear el *controller* `SalesTerminal`, el qual ha de seguir les especificacions següents:
+1. Ha de poder emmagatzemar les múltiples vendes que realitza l'aplicació; les vendes són instàncies de la classe `Sale` (vegeu diagrama UML associat)
+2. `createNewSale()`: s'ha de crear una nova instància de `Sale`, la qual contindrà una instància de `SaleReceipt` i una instància de `Payment`
+3. `addProduct(barcode, quantity)`: s'ha de poder afegir una nova línia de compra (`ReceiptLine`) a la venda actual; aquesta línia ha de correspondre al producte amb el codi de barres `barcode`
+4. `endSale()`: marca la venda (`Sale`) com a finalitzada i retorna el total
+5. `paySale(money)`: retorna el canvi que s'ha de donar a l'usuari
+
+Addicionalment, per tal de poder seleccionar els productes correctament per crear les instàncies de `ReceiptLine` es necessita la classe `ProductsCatalog`, que quedarà associada al *controller* `SaleTerminal` (aquest punt variarà més endavant) i serà l'encarregada de carregar tots els productes des de fitxer i de, donat un codi de barres, retornar el producte corresponent. Com que els productes es troben en un fitxer XML, abans de poder continuar cal analitzar el capítol 2 del llibre.
+
+Implementeu totes les classes implicades en aquest exercici, així com també el programa `main`, que farà d'interfície gràfica.
+
 {% endhint %}
