@@ -78,10 +78,17 @@ El patró d'assignació de responsabilitats *Expert* està molt relacionat amb e
 
 Donat el diagrama de classes UML que es mostra a continuació, cal declarar i implementar tots els mètodes necessaris per poder assolir la funcionalitat *obtenir el total del tiquet de la compra*. El llenguatge que s'ha d'utilitzar és Java.
 
-![Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*](img/ch01/expert_uml_example.png "Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*")
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/expert_uml_example.png" width="100%" alt="Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*">
+        <figcaption><p>Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*</p></figcaption>
+    </figure>
+</div>
 
 Atenció, només s'han d'implementar els mètodes estrictament necessaris. A més a més, tampoc fa falta crear el constructor, ja que, de moment,  es treballarà amb el constructor per defecte que garanteix Java.
 {% endhint %}
+
+### Patró d'assignació de responsabilitats *Creator*
 
 
 
