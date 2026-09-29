@@ -12,6 +12,9 @@
    id="svg13"
    sodipodi:docname="expert_uml_example.svg"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   inkscape:export-filename="expert_uml_example.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,15 +29,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showguides="true"
-     inkscape:zoom="1.6599542"
-     inkscape:cx="361.45574"
-     inkscape:cy="-30.121312"
+     inkscape:zoom="1.1737649"
+     inkscape:cx="285.40639"
+     inkscape:cy="-2.5558782"
      inkscape:window-width="1920"
      inkscape:window-height="975"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg13">
+     inkscape:current-layer="svg13"
+     inkscape:export-bgcolor="#ffffffff">
     <sodipodi:guide
        position="6.75,128.25"
        orientation="0,-1"
@@ -68,7 +72,10 @@
      data-qualified-name="SaleReceipt"
      id="ent0001"
      data-source-line="1"
-     style="font-family:sans-serif">
+     style="font-family:sans-serif"
+     inkscape:export-filename="expert_uml_example.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <rect
        x="7"
        y="7"
@@ -284,117 +291,6 @@
        style="stroke:#181818;stroke-width:0.5"
        id="line8" />
   </g>
-  <g
-     class="entity"
-     data-qualified-name="Product"
-     id="ent0003"
-     data-source-line="13"
-     style="font-family:sans-serif"
-     transform="translate(0.55239122,-8.1499996)">
-    <rect
-       x="455.53"
-       y="15.15"
-       width="116.651"
-       height="96.890999"
-       fill="#f1f1f1"
-       style="stroke:#181818;stroke-width:0.5"
-       rx="2.5"
-       ry="2.5"
-       id="rect9" />
-    <circle
-       cx="484.45401"
-       cy="31.15"
-       fill="#add1b2"
-       style="stroke:#181818;stroke-width:1"
-       id="ellipse9"
-       r="11" />
-    <path
-       d="m 487.422,36.791 q -0.578,0.296 -1.218,0.437 -0.641,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.313,-1.657 -1.313,-4.782 0,-3.125 1.313,-4.781 1.328,-1.656 3.828,-1.656 0.703,0 1.344,0.156 0.656,0.156 1.218,0.453 v 2.719 q -0.625,-0.578 -1.218,-0.844 -0.594,-0.281 -1.219,-0.281 -1.344,0 -2.031,1.078 -0.688,1.063 -0.688,3.156 0,2.094 0.688,3.172 0.687,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.593,-0.281 1.218,-0.859 z"
-       fill="#000000"
-       id="path9" />
-    <text
-       x="501.548"
-       y="35.997002"
-       fill="#000000"
-       font-size="14px"
-       textLength="53.709999"
-       id="text9"
-       lengthAdjust="spacing">Product</text>
-    <line
-       x1="456.53"
-       y1="47.150002"
-       x2="571.18103"
-       y2="47.150002"
-       style="stroke:#181818;stroke-width:0.5"
-       id="line9" />
-    <g
-       data-visibility-modifier="PRIVATE_FIELD"
-       id="g10">
-      <rect
-         x="463.53"
-         y="57.798"
-         width="6"
-         height="6"
-         fill="none"
-         style="stroke:#c82930;stroke-width:1"
-         id="rect10" />
-    </g>
-    <text
-       x="475.53"
-       y="64.144997"
-       fill="#000000"
-       font-size="14px"
-       textLength="90.651001"
-       id="text10"
-       lengthAdjust="spacing">String name;</text>
-    <g
-       data-visibility-modifier="PRIVATE_FIELD"
-       id="g11">
-      <rect
-         x="463.53"
-         y="74.095001"
-         width="6"
-         height="6"
-         fill="none"
-         style="stroke:#c82930;stroke-width:1"
-         id="rect11" />
-    </g>
-    <text
-       x="475.53"
-       y="80.442001"
-       fill="#000000"
-       font-size="14px"
-       textLength="75.461998"
-       id="text11"
-       lengthAdjust="spacing">float price;</text>
-    <g
-       data-visibility-modifier="PRIVATE_FIELD"
-       id="g12">
-      <rect
-         x="463.53"
-         y="90.391998"
-         width="6"
-         height="6"
-         fill="none"
-         style="stroke:#c82930;stroke-width:1"
-         id="rect12" />
-    </g>
-    <text
-       x="475.53"
-       y="96.738998"
-       fill="#000000"
-       font-size="14px"
-       textLength="78.879997"
-       id="text12"
-       lengthAdjust="spacing">float taxes;</text>
-    <line
-       x1="456.53"
-       y1="104.041"
-       x2="571.18103"
-       y2="104.041"
-       style="stroke:#181818;stroke-width:0.5"
-       id="line12" />
-  </g>
   <path
      d="m 433.52239,63.578772 c 11.52,0 11.04,0 22.56,0"
      style="font-family:sans-serif;stroke:#181818;stroke-width:1"
@@ -427,5 +323,136 @@
        fill="#181818"
        style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10"
        id="polygon13" />
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Product"
+     id="ent0003"
+     data-source-line="13"
+     style="font-family:sans-serif"
+     transform="translate(1.4423754)">
+    <rect
+       x="454.89001"
+       y="7"
+       width="133.933"
+       height="113.188"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect9" />
+    <circle
+       cx="491.59"
+       cy="23"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse9"
+       r="11" />
+    <path
+       d="m 494.559,28.641 q -0.578,0.297 -1.219,0.437 -0.64,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.312,-1.656 -1.312,-4.781 0,-3.125 1.312,-4.782 1.328,-1.656 3.828,-1.656 0.704,0 1.344,0.156 0.656,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.594,-0.281 -1.219,-0.281 -1.343,0 -2.031,1.078 -0.687,1.063 -0.687,3.157 0,2.093 0.687,3.171 0.688,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path9" />
+    <text
+       x="510.41199"
+       y="27.847"
+       fill="#000000"
+       font-size="14px"
+       textLength="53.709999"
+       id="text9"
+       lengthAdjust="spacing">Product</text>
+    <line
+       x1="455.89001"
+       y1="39"
+       x2="587.823"
+       y2="39"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line9" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g10">
+      <rect
+         x="462.89001"
+         y="49.647999"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect10" />
+    </g>
+    <text
+       x="474.89001"
+       y="55.994999"
+       fill="#000000"
+       font-size="14px"
+       textLength="107.933"
+       id="text10"
+       lengthAdjust="spacing">String barcode;</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g11">
+      <rect
+         x="462.89001"
+         y="65.945"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect11" />
+    </g>
+    <text
+       x="474.89001"
+       y="72.292"
+       fill="#000000"
+       font-size="14px"
+       textLength="90.651001"
+       id="text11"
+       lengthAdjust="spacing">String name;</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g12">
+      <rect
+         x="462.89001"
+         y="82.241997"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect12" />
+    </g>
+    <text
+       x="474.89001"
+       y="88.588997"
+       fill="#000000"
+       font-size="14px"
+       textLength="75.461998"
+       id="text12"
+       lengthAdjust="spacing">float price;</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g13">
+      <rect
+         x="462.89001"
+         y="98.539001"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect13" />
+    </g>
+    <text
+       x="474.89001"
+       y="104.886"
+       fill="#000000"
+       font-size="14px"
+       textLength="78.879997"
+       id="text13"
+       lengthAdjust="spacing">float taxes;</text>
+    <line
+       x1="455.89001"
+       y1="112.188"
+       x2="587.823"
+       y2="112.188"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line13" />
   </g>
 </svg>

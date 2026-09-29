@@ -13,6 +13,7 @@ class ReceiptLine {
 }
 
 class Product {
+    - String barcode;
     - String name;
     - float price;
     - float taxes;

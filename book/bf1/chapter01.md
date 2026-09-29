@@ -66,11 +66,21 @@ Si una classe (o un objecte) no té totes les dades necessàries per poder execu
 
 Aquest patró genera un baix desacoblament en el codi, perquè permet mantenir un molt bon encapsulament dels objectes i saber, clarament, qui pot donar resposta a les diverses necessitats i càlculs. A més a més, també n'augmenta la cohesió, perquè ajuda a fer una bona representació del món real dins del codi, distribuïnt el comportament entre les classes i facilitant la delegació de tasques (col·laboració).
 
-![Diagrama UML d'exemple](img/ch01/expert_uml_example.png "Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*")
-
-
-{% hint style="info" %}
+{% hint style="warning" %}
 **Informació.**
 
 El patró d'assignació de responsabilitats *Expert* està molt relacionat amb el patró clàssic estructural *Composite* 
 {% endhint %}
+
+
+{% hint style="info" icon="pen" %}
+**Exercici 1**
+
+Donat el diagrama de classes UML que es mostra a continuació, cal declarar i implementar tots els mètodes necessaris per poder assolir la funcionalitat *obtenir el total del tiquet de la compra*. El llenguatge que s'ha d'utilitzar és Java.
+![Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*](img/ch01/expert_uml_example.png "Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*")
+
+Atenció, només s'han d'implementar els mètodes estrictament necessaris. A més a més, tampoc fa falta crear el constructor, ja que, de moment,  es treballarà amb el constructor per defecte que garanteix Java.
+{% endhint %}
+
+
+
