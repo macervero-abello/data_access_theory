@@ -66,14 +66,14 @@ Si una classe (o un objecte) no té totes les dades necessàries per poder execu
 
 Aquest patró genera un baix desacoblament en el codi, perquè permet mantenir un molt bon encapsulament dels objectes i saber, clarament, qui pot donar resposta a les diverses necessitats i càlculs. A més a més, també n'augmenta la cohesió, perquè ajuda a fer una bona representació del món real dins del codi, distribuïnt el comportament entre les classes i facilitant la delegació de tasques (col·laboració).
 
-{% hint style="warning" %}
+{% hint style="info" %}
 **Informació.**
 
 El patró d'assignació de responsabilitats *Expert* està molt relacionat amb el patró clàssic estructural *Composite* 
 {% endhint %}
 
 
-{% hint style="info" icon="pen" %}
+{% hint style="warning" icon="pen" %}
 **Exercici 1**
 
 Donat el diagrama de classes UML que es mostra a continuació, cal declarar i implementar tots els mètodes necessaris per poder assolir la funcionalitat *obtenir el total del tiquet de la compra*. El llenguatge que s'ha d'utilitzar és Java.
