@@ -150,8 +150,40 @@ Això es pot fer utilitzant un *Facade Controller* (per exemple, `SaleTerminal` 
 4. `endSale()`: marca la venda (`Sale`) com a finalitzada i retorna el total
 5. `paySale(money)`: retorna el canvi que s'ha de donar a l'usuari
 
-Addicionalment, per tal de poder seleccionar els productes correctament per crear les instàncies de `ReceiptLine` es necessita la classe `ProductsCatalog`, que quedarà associada al *controller* `SaleTerminal` (aquest punt variarà més endavant) i serà l'encarregada de carregar tots els productes des de fitxer i de, donat un codi de barres, retornar el producte corresponent. Com que els productes es troben en un fitxer XML, abans de poder continuar cal analitzar el capítol 2 del llibre.
+Addicionalment, per tal de poder seleccionar els productes correctament per crear les instàncies de `ReceiptLine` es necessita la classe `ProductsCatalog`, que quedarà associada al *controller* `SaleTerminal` (aquest punt variarà més endavant) i serà l'encarregada de carregar tots els productes des de fitxer i de, donat un codi de barres, retornar el producte corresponent. Els productes es troben en el següent fitxer `CSV`:
 
-Implementeu totes les classes implicades en aquest exercici, així com també el programa `main`, que farà d'interfície gràfica.
+```
+Codi de barres;Nom;Preu unitari;IVA
+8412345000001;Llet sencera 1 L;1.05;4
+8412345000002;Pa de pagès 500 g;1.80;4
+8412345000003;Ous mida L (dotzena);2.75;4
+8412345000004;Arròs rodó 1 kg;1.65;4
+8412345000005;Pasta de blat 500 g;1.20;10
+8412345000006;Oli d'oliva verge extra 1 L;8.95;10
+8412345000007;Iogurt natural 4 unitats;1.90;4
+8412345000008;Formatge semi 250 g;4.25;4
+8412345000009;Pernil dolç 150 g;2.35;10
+8412345000010;Tonyina en conserva 3 x 80 g;3.60;10
+8412345000011;Tomàquet fregit 350 g;1.45;10
+8412345000012;Cereals de blat de moro 500 g;2.85;10
+8412345000013;Galetes de xocolata 300 g;2.40;10
+8412345000014;Xocolata negra 100 g;1.95;10
+8412345000015;Cafè mòlt 250 g;3.75;10iva
+8412345000016;Aigua mineral 1,5 L;0.65;10
+8412345000017;Refresc de cola 2 L;2.10;21
+8412345000018;Cervesa sense alcohol 33 cl;0.95;21
+8412345000019;Patates fregides 150 g;1.70;10
+8412345000020;Gelat de vainilla 500 ml;4.50;10
+```
+
+Implementa totes les classes implicades en aquest exercici, així com també el programa `main`, que farà d'interfície gràfica.
+La lectura i el tractament del fitxer la pots fer mitjançant la lectura clàssica o mitjançant *streams*.
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/controller_uml_example.png" width="100%" alt="Diagrama UML de Classes amb l'aplicació el Patró *Controller*">
+        <figcaption><p>Diagrama UML de Classes amb l'aplicació el Patró *Controller*</p></figcaption>
+    </figure>
+</div>
 
 {% endhint %}

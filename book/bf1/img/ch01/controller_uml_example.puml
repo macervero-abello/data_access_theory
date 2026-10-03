@@ -4,6 +4,7 @@ skinparam linestyle ortho
 
 class SaleTerminal {
     - ArrayList<Sale> sales;
+    - ProductCatalog catalog;
 }
 
 class Sale {
@@ -13,7 +14,7 @@ class Sale {
 }
 
 class ProductCatalog {
-    - ArrayList<Product> catalog;
+    - ArrayList<Product> products;
 }
 
 class SaleReceipt {
