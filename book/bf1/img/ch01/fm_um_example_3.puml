@@ -1,0 +1,50 @@
+@startuml
+
+skinparam linestyle ortho
+
+class NotificationSystem {
+    + sendNotification(int type; String recipient, String msg): String;
+}
+
+class NotificationSimpleFactory {
+    + static final int SMS_NOTIFICATION = 0;
+    + static final int EMAIL_NOTIFICATION = 1;
+    
+    + createNotification(): Notification;
+}
+
+interface Notification {
+    + addRecipient(String recipient): void;
+    + saveMessage(String msg): void;
+    + sendNotification(): String;
+}
+
+class SMSNotification {
+    - String phone;
+    - String msg;
+    
+    + addRecipient(String recipient): void;
+    + saveMessage(String msg): void;
+    + sendNotification(): String;
+}
+
+class EMailNotification {
+    - String email;
+    - String message;
+    
+    + addRecipient(String recipient): void;
+    + saveMessage(String msg): void:
+    + sendNotification(): String;
+}
+
+Notification <-u- NotificationSystem
+NotificationSimpleFactory <-u- NotificationSystem
+
+SMSNotification <-u- NotificationSimpleFactory
+EMailNotification <-u- NotificationSimpleFactory
+
+
+SMSNotification -u-|> Notification
+EMailNotification -u-|> Notification
+
+@enduml

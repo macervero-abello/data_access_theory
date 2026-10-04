@@ -192,7 +192,7 @@ La lectura i el tractament del fitxer la pots fer mitjançant la lectura clàssi
 
 {% endhint %}
 
-### Patró estructural *Data Access Object* (DAO)
+## Patró estructural *Data Access Object* (DAO)
 El patró *Data Access Object** (DAO) és un patró estructural que permet aïllar la lògica de negoci (el nucli del programa) de la capa de persistència, és a dir, de les múlitples fonts de dades a les quals pot accedir (bases de dades relacionals, fitxers, bases de dades documentals, etc.). D'aquesta manera, l'aplicació pot obtenir les dades a través de les típiques operacions CRUD (*Create*, *Read*, *Update* i *Delete*) sense necessitat de conèixer l'estructura interna de la font a la qual s'està accedint, ja que aquestes operacions les fa l'objecte DAO (vegeu la figura de sota).
 
 <div data-with-frame="true">
@@ -225,3 +225,112 @@ Recupera i modifica el codi de l'exercici anterior per tal que l'encarregada de 
 </div>
 
 {% endhint %}
+
+## Patró clàssic de creació *Factory Method*
+Donada una jerarquia d'objectes, el patró *Factory Method* consisteix a crear un mètode que permeti crear una instància d'una de les classes de la jerarquia en concret, de tal manera que l'objecte que invoca aquest mètode no ha de conéixer la classe en concret de l'objecte que està creant, sinó només la seva superclasse. D'aquesta manera s'aconsegueix un major desacoblament dins del codi.
+
+Imaginem que cal implementar el programa definit pel diagrama UML següent, on la superclasse de la jerarquia, en aquest cas `Notification`, pot ser una classe *normal*, una classe abstracta o una interfície:
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_example_1.png" width="100%" alt="Diagrama UML de Classes inicial per explicar el patró *Factory Method*">
+        <figcaption><p>Diagrama UML de Classes inicial per explicar el patró *Factory Method*</p></figcaption>
+    </figure>
+</div>
+
+Un possible codi resultant és el següent:
+```java
+    public interface Notification {
+        public void addRecipient(String recipient);
+        public void saveMessage(String msg);
+        public String sendNotification();
+    }
+
+
+    public class SMSNotification implements Notification {
+        private String phone;
+        private String msg;
+
+        public SMSNotification() {
+            this.phone = "";
+            this.msg = "";
+        }
+
+        public void addRecipient(String recipient) {
+            this.phone = recipient;
+        }
+
+        public void saveMessage(String msg) {
+            this.msg = msg;
+        }
+
+        public String sendNotification() {
+            return "Enviant SMS al telèfon " + this.phone + "...\n Missatge enviat: " + this.msg;
+        }
+    }
+
+    public class EMailNotification implements Notification {
+        private String email;
+        private String msg;
+
+        public EMailNotification() {
+            this.email = "";
+            this.msg = "";
+        }
+
+        public void addRecipient(String recipient) {
+            this.email = recipient;
+        }
+
+        public void saveMessage(String msg) {
+            this.msg = msg;
+        }
+
+        public String sendNotification() {
+            return "Enviant correu electrònic a l'adreça " + this.email + "...\n Missatge enviat: " + this.msg;
+        }
+    }
+
+    public class NotificationSystem {
+        public static final int SMS_NOTIFICATION = 0;
+        public static final int EMAIL_NOTIFICATION = 1;
+    
+        public String sendNotification(int type; String recipient, String msg) {
+            Notification notification = null;
+            String result = "";
+
+            if(type == NotificationSystem.SMS_NOTIFICATION) {
+                notification = new SMSNotification();
+            } else if(type == NotificationSystem.EMAIL_NOTIFICATION) {
+                notification = new EMailNotification();
+            }
+
+            if(notification != null) {
+                notification.addRecipient(recipient);
+                notification.saveMessage(msg);
+                result = notification.sendNotification();
+            }
+
+            return result
+        }
+    }
+```
+Podem veure que aquest codi provoca que el sistema de notificacions (`NotificationSystem`) quedi acoblat a tota la jerarquia de notificacions (`Notification`), la qual cosa no és massa interessant.
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_example_2.png" width="100%" alt="Acoblament provocat quan no s'utilitza el patró *Factory Method*">
+        <figcaption><p>Acoblament provocat quan no s'utilitza el patró *Factory Method*</p></figcaption>
+    </figure>
+</div>
+
+Per resoldre aquest problema podem fer-ho de dues maneres:
+1. Utilitzant una *Simple Factory* amb un *Factory Method* parametritzat que crei l'objecte desitjat
+2. Utilitzant una jerarquia de *factories* equivalent a la jerarquia dels objectes que volem crear; cadascuna d'aquestes *factories* tindrà un *Factory Method* **sense paràmetres** que crearà l'objecte concret.
+
+La primera opció és més senzilla (implementa el patró *Simple Factory*, una simplificació del *Factory Method) i la segona opció és el patró *Factory Method* estàndard.
+
+### Implementació de l'opció 1: *Simple Factory*
+El diagrama UML corresponent a aquesta opció seria el següent:
+
+

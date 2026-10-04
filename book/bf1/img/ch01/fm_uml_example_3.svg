@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   data-diagram-type="CLASS"
+   style="width:957px;height:308px;background:#FFFFFF;"
+   width="957px"
+   height="308px"
+   viewBox="0 0 957 308"
+   zoomAndPan="magnify"
+   preserveAspectRatio="none"
+   contentStyleType="text/css"
+   id="svg21"
+   sodipodi:docname="fm_uml_example_3.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   inkscape:export-filename="fm_uml_example_2.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="45.254834"
+     inkscape:cx="828.37559"
+     inkscape:cy="2.2539029"
+     inkscape:window-width="1920"
+     inkscape:window-height="975"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21"
+     inkscape:export-bgcolor="#ffffffff">
+    <sodipodi:guide
+       position="391.26224,301.25"
+       orientation="0,-1"
+       id="guide21"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="711.19901,269"
+       orientation="1,0"
+       id="guide22"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="168.125,178"
+       orientation="0,-1"
+       id="guide23"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="260.01322,220.30986"
+       orientation="1,0"
+       id="guide24"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="254.99936,218.64577"
+       orientation="1,0"
+       id="guide25"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="265.00391,217.88672"
+       orientation="1,0"
+       id="guide26"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="164.51514,197.83984"
+       orientation="0,-1"
+       id="guide27"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="268.69604,203.859"
+       orientation="0,-1"
+       id="guide28"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="306.23047,165.55859"
+       orientation="1,0"
+       id="guide29"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="224.61426,144.36"
+       orientation="0,-1"
+       id="guide30"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+<?plantuml 1.2026.9beta4?>  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker47"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path47" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7" />
+    </marker>
+  </defs>
+  <g
+     class="entity"
+     data-qualified-name="NotificationSystem"
+     id="ent0001-2"
+     data-source-line="3"
+     style="font-family:sans-serif"
+     transform="translate(249.91904,-135)">
+    <rect
+       x="80.889999"
+       y="7"
+       width="462.61801"
+       height="64.296997"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect1-9" />
+    <circle
+       cx="241.68201"
+       cy="23"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse1-3"
+       r="11" />
+    <path
+       d="m 244.65,28.641 q -0.578,0.297 -1.218,0.437 -0.641,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.313,-1.656 -1.313,-4.781 0,-3.125 1.313,-4.782 1.328,-1.656 3.828,-1.656 0.703,0 1.344,0.156 0.656,0.157 1.218,0.453 v 2.719 q -0.625,-0.578 -1.218,-0.844 -0.594,-0.281 -1.219,-0.281 -1.344,0 -2.031,1.078 -0.688,1.063 -0.688,3.157 0,2.093 0.688,3.171 0.687,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.593,-0.281 1.218,-0.859 z"
+       fill="#000000"
+       id="path1-1" />
+    <text
+       x="262.18201"
+       y="27.847"
+       fill="#000000"
+       font-size="14px"
+       textLength="132.535"
+       id="text1-9"
+       lengthAdjust="spacing">NotificationSystem</text>
+    <line
+       x1="81.889999"
+       y1="39"
+       x2="542.508"
+       y2="39"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line1-4" />
+    <line
+       x1="81.889999"
+       y1="47"
+       x2="542.508"
+       y2="47"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line2" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g2-7">
+      <circle
+         cx="91.889999"
+         cy="60.647999"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse2-8"
+         r="3" />
+    </g>
+    <text
+       x="100.89"
+       y="63.994999"
+       fill="#000000"
+       font-size="14px"
+       textLength="436.61801"
+       id="text2-4"
+       lengthAdjust="spacing">sendNotification(int type; String recipient, String msg): String;</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Notification"
+     id="ent0002"
+     data-source-line="10"
+     style="font-family:sans-serif">
+    <rect
+       x="164"
+       y="7"
+       width="280.40601"
+       height="96.890999"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect4" />
+    <circle
+       cx="259.789"
+       cy="23"
+       fill="#b4a7e5"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse5"
+       r="11" />
+    <path
+       d="m 255.71,18.766 v -2.157 h 7.391 v 2.157 h -2.469 v 8.078 h 2.469 V 29 h -7.391 v -2.156 h 2.469 v -8.078 z"
+       fill="#000000"
+       id="path5" />
+    <text
+       x="280.289"
+       y="27.847"
+       fill="#000000"
+       font-size="14px"
+       textLength="80.329002"
+       font-style="italic"
+       id="text5"
+       lengthAdjust="spacing">Notification</text>
+    <line
+       x1="165"
+       y1="39"
+       x2="443.40601"
+       y2="39"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line5" />
+    <line
+       x1="165"
+       y1="47"
+       x2="443.40601"
+       y2="47"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line6" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g6">
+      <circle
+         cx="175"
+         cy="60.647999"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse6"
+         r="3" />
+    </g>
+    <text
+       x="184"
+       y="63.994999"
+       fill="#000000"
+       font-size="14px"
+       textLength="254.40601"
+       id="text6"
+       lengthAdjust="spacing">addRecipient(String recipient): void;</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g7">
+      <circle
+         cx="175"
+         cy="76.945"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse7"
+         r="3" />
+    </g>
+    <text
+       x="184"
+       y="80.292"
+       fill="#000000"
+       font-size="14px"
+       textLength="224.61501"
+       id="text7"
+       lengthAdjust="spacing">saveMessage(String msg): void;</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g8">
+      <circle
+         cx="175"
+         cy="93.241997"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse8"
+         r="3" />
+    </g>
+    <text
+       x="184"
+       y="96.588997"
+       fill="#000000"
+       font-size="14px"
+       textLength="180.58501"
+       id="text8"
+       lengthAdjust="spacing">sendNotification(): String;</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="SMSNotification"
+     id="ent0003"
+     data-source-line="16"
+     style="font-family:sans-serif">
+    <rect
+       x="7"
+       y="163.89"
+       width="280.40601"
+       height="129.48399"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect8" />
+    <circle
+       cx="87.862"
+       cy="179.89"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse9"
+       r="11" />
+    <path
+       d="m 90.831,185.531 q -0.578,0.297 -1.219,0.437 -0.64,0.156 -1.343,0.156 -2.5,0 -3.829,-1.64 -1.312,-1.656 -1.312,-4.781 0,-3.125 1.312,-4.782 1.329,-1.656 3.829,-1.656 0.703,0 1.343,0.156 0.657,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.593,-0.281 -1.218,-0.281 -1.344,0 -2.032,1.078 -0.687,1.063 -0.687,3.157 0,2.093 0.687,3.171 0.688,1.063 2.032,1.063 0.625,0 1.218,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path9" />
+    <text
+       x="108.362"
+       y="184.737"
+       fill="#000000"
+       font-size="14px"
+       textLength="110.182"
+       id="text9"
+       lengthAdjust="spacing">SMSNotification</text>
+    <line
+       x1="8"
+       y1="195.89"
+       x2="286.40601"
+       y2="195.89"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line9" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g9">
+      <rect
+         x="15"
+         y="206.53799"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect9" />
+    </g>
+    <text
+       x="27"
+       y="212.88499"
+       fill="#000000"
+       font-size="14px"
+       textLength="94.760002"
+       id="text10"
+       lengthAdjust="spacing">String phone;</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g10">
+      <rect
+         x="15"
+         y="222.83501"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect10" />
+    </g>
+    <text
+       x="27"
+       y="229.18201"
+       fill="#000000"
+       font-size="14px"
+       textLength="80.766998"
+       id="text11"
+       lengthAdjust="spacing">String msg;</text>
+    <line
+       x1="8"
+       y1="236.48399"
+       x2="286.40601"
+       y2="236.48399"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line11" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g11">
+      <circle
+         cx="18"
+         cy="250.132"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse11"
+         r="3" />
+    </g>
+    <text
+       x="27"
+       y="253.479"
+       fill="#000000"
+       font-size="14px"
+       textLength="254.40601"
+       id="text12"
+       lengthAdjust="spacing">addRecipient(String recipient): void;</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g12">
+      <circle
+         cx="18"
+         cy="266.42899"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse12"
+         r="3" />
+    </g>
+    <text
+       x="27"
+       y="269.776"
+       fill="#000000"
+       font-size="14px"
+       textLength="224.61501"
+       id="text13"
+       lengthAdjust="spacing">saveMessage(String msg): void;</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g13">
+      <circle
+         cx="18"
+         cy="282.72601"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse13"
+         r="3" />
+    </g>
+    <text
+       x="27"
+       y="286.073"
+       fill="#000000"
+       font-size="14px"
+       textLength="180.58501"
+       id="text14"
+       lengthAdjust="spacing">sendNotification(): String;</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="EMailNotification"
+     id="ent0004"
+     data-source-line="25"
+     style="font-family:sans-serif">
+    <rect
+       x="322"
+       y="163.89"
+       width="280.40601"
+       height="129.48399"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect14" />
+    <circle
+       cx="399.147"
+       cy="179.89"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse14"
+       r="11" />
+    <path
+       d="m 402.116,185.531 q -0.578,0.297 -1.219,0.437 -0.641,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.312,-1.656 -1.312,-4.781 0,-3.125 1.312,-4.782 1.328,-1.656 3.828,-1.656 0.703,0 1.344,0.156 0.656,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.594,-0.281 -1.219,-0.281 -1.344,0 -2.031,1.078 -0.688,1.063 -0.688,3.157 0,2.093 0.688,3.171 0.687,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path14" />
+    <text
+       x="419.647"
+       y="184.737"
+       fill="#000000"
+       font-size="14px"
+       textLength="117.612"
+       id="text15"
+       lengthAdjust="spacing">EMailNotification</text>
+    <line
+       x1="323"
+       y1="195.89"
+       x2="601.40601"
+       y2="195.89"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line15" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g15">
+      <rect
+         x="330"
+         y="206.53799"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect15" />
+    </g>
+    <text
+       x="342"
+       y="212.88499"
+       fill="#000000"
+       font-size="14px"
+       textLength="89.557999"
+       id="text16"
+       lengthAdjust="spacing">String email;</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g16">
+      <rect
+         x="330"
+         y="222.83501"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect16" />
+    </g>
+    <text
+       x="342"
+       y="229.18201"
+       fill="#000000"
+       font-size="14px"
+       textLength="113.866"
+       id="text17"
+       lengthAdjust="spacing">String message;</text>
+    <line
+       x1="323"
+       y1="236.48399"
+       x2="601.40601"
+       y2="236.48399"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line17" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g17">
+      <circle
+         cx="333"
+         cy="250.132"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse17"
+         r="3" />
+    </g>
+    <text
+       x="342"
+       y="253.479"
+       fill="#000000"
+       font-size="14px"
+       textLength="254.40601"
+       id="text18"
+       lengthAdjust="spacing">addRecipient(String recipient): void;</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g18">
+      <circle
+         cx="333"
+         cy="266.42899"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse18"
+         r="3" />
+    </g>
+    <text
+       x="342"
+       y="269.776"
+       fill="#000000"
+       font-size="14px"
+       textLength="224.61501"
+       id="text19"
+       lengthAdjust="spacing">saveMessage(String msg): void:</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g19">
+      <circle
+         cx="333"
+         cy="282.72601"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse19"
+         r="3" />
+    </g>
+    <text
+       x="342"
+       y="286.073"
+       fill="#000000"
+       font-size="14px"
+       textLength="180.58501"
+       id="text20"
+       lengthAdjust="spacing">sendNotification(): String;</text>
+  </g>
+  <g
+     id="g31">
+    <path
+       style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;paint-order:normal"
+       d="m 306.23047,104.641 -5.01386,19.83984 h 10.00455 L 306.23047,104.641"
+       id="path27" />
+    <path
+       style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;paint-order:normal"
+       d="M 147.203,163.89 V 130 H 456 v 33.64"
+       id="path30" />
+    <path
+       style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;paint-order:normal"
+       d="M 306.21888,124.48084 V 130"
+       id="path31" />
+  </g>
+  <g
+     id="g46">
+    <g
+       id="g44">
+      <g
+         id="g35">
+        <path
+           style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#ConcaveTriangle);paint-order:normal"
+           d="M 155.89063,313.27064 V 299.92399"
+           id="path33" />
+        <g
+           id="g37">
+          <path
+             style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;paint-order:normal"
+             d="m 155.89063,299.92399 v 21.98637 H 866.91291 V 104.141"
+             id="path34" />
+        </g>
+      </g>
+      <g
+         id="g36">
+        <path
+           style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#ConcaveTriangle);paint-order:normal"
+           d="M 454.08875,313.27064 V 299.92399"
+           id="path35" />
+        <path
+           style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;paint-order:normal"
+           d="m 454.08875,299.92399 v 21.98637"
+           id="path36" />
+      </g>
+    </g>
+    <g
+       id="g45">
+      <g
+         id="g43"
+         transform="rotate(-90,340.11498,189.08297)">
+        <path
+           style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#ConcaveTriangle);paint-order:normal"
+           d="M 454.08875,313.27064 V 299.92399"
+           id="path42" />
+        <path
+           style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;paint-order:normal"
+           d="m 454.08875,299.92399 v 21.98637"
+           id="path43" />
+      </g>
+      <path
+         style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;paint-order:normal"
+         d="M 450.956,75.1092 H 644.88138 V 163.64 h 222.03153"
+         id="path44" />
+    </g>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="NotificationSimpleFactory"
+     id="ent0002-0"
+     data-source-line="7"
+     style="font-family:sans-serif"
+     transform="translate(389.12901,-124.3)">
+    <rect
+       x="322.32001"
+       y="131.3"
+       width="309.767"
+       height="96.890999"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect2" />
+    <circle
+       cx="382.67401"
+       cy="147.3"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse3-2"
+       r="11" />
+    <path
+       d="m 385.643,152.941 q -0.578,0.297 -1.219,0.437 -0.64,0.156 -1.343,0.156 -2.5,0 -3.828,-1.64 -1.313,-1.656 -1.313,-4.781 0,-3.125 1.313,-4.782 1.328,-1.656 3.828,-1.656 0.703,0 1.343,0.156 0.657,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.593,-0.281 -1.218,-0.281 -1.344,0 -2.032,1.078 -0.687,1.063 -0.687,3.157 0,2.093 0.687,3.171 0.688,1.063 2.032,1.063 0.625,0 1.218,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path3" />
+    <text
+       x="403.17401"
+       y="152.147"
+       fill="#000000"
+       font-size="14px"
+       textLength="180.558"
+       id="text3-3"
+       lengthAdjust="spacing">NotificationSimpleFactory</text>
+    <line
+       x1="323.32001"
+       y1="163.3"
+       x2="631.08698"
+       y2="163.3"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line3-7" />
+    <g
+       data-visibility-modifier="PUBLIC_FIELD"
+       id="g4-5">
+      <circle
+         cx="333.32001"
+         cy="176.948"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse4-9"
+         r="3" />
+    </g>
+    <text
+       x="342.32001"
+       y="180.295"
+       fill="#000000"
+       font-size="14px"
+       textLength="271.18799"
+       id="text4-2"
+       lengthAdjust="spacing">static final int SMS_NOTIFICATION = 0;</text>
+    <g
+       data-visibility-modifier="PUBLIC_FIELD"
+       id="g5">
+      <circle
+         cx="333.32001"
+         cy="193.245"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse5-2"
+         r="3" />
+    </g>
+    <text
+       x="342.32001"
+       y="196.592"
+       fill="#000000"
+       font-size="14px"
+       textLength="283.767"
+       id="text5-8"
+       lengthAdjust="spacing">static final int EMAIL_NOTIFICATION = 1;</text>
+    <line
+       x1="323.32001"
+       y1="203.894"
+       x2="631.08698"
+       y2="203.894"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line5-9" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g6-7">
+      <circle
+         cx="333.32001"
+         cy="217.54201"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse6-3"
+         r="3" />
+    </g>
+    <text
+       x="342.32001"
+       y="220.88901"
+       fill="#000000"
+       font-size="14px"
+       textLength="230.214"
+       id="text6-6"
+       lengthAdjust="spacing">createNotification(): Notification;</text>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#marker47);paint-order:normal"
+     d="M 306.19174,-28.541378 V 0.45"
+     id="path46" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#marker47);paint-order:normal"
+     d="M 830.79529,-28.541375 V 0.45000305"
+     id="path48" />
+</svg>
