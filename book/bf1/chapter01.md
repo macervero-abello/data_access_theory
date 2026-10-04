@@ -41,8 +41,8 @@ Aquest capítol tracta els següents coneixements:
 * Patró d'assignació de responsabilitats *Expert*
 * Patró d'assignació de responsabilitats *Creator*
 * Patró d'assignació de responsabilitats *Controller*
+* Patró estructural *Data Access Object* (DAO)
 * Patró clàssic de creació *Factory Method*
-* Patró *Data Access Object* (DAO)
 * Aquitectura MVC
 
 ## GRASP (*General Responsibility Assignment Software Patterns*)
@@ -187,6 +187,40 @@ La lectura i el tractament del fitxer la pots fer mitjançant la lectura clàssi
     <figure>
         <img src="img/ch01/controller_uml_example.png" width="100%" alt="Diagrama UML de Classes amb l'aplicació el Patró *Controller*">
         <figcaption><p>Diagrama UML de Classes amb l'aplicació el Patró *Controller*</p></figcaption>
+    </figure>
+</div>
+
+{% endhint %}
+
+### Patró estructural *Data Access Object* (DAO)
+El patró *Data Access Object** (DAO) és un patró estructural que permet aïllar la lògica de negoci (el nucli del programa) de la capa de persistència, és a dir, de les múlitples fonts de dades a les quals pot accedir (bases de dades relacionals, fitxers, bases de dades documentals, etc.). D'aquesta manera, l'aplicació pot obtenir les dades a través de les típiques operacions CRUD (*Create*, *Read*, *Update* i *Delete*) sense necessitat de conèixer l'estructura interna de la font a la qual s'està accedint, ja que aquestes operacions les fa l'objecte DAO (vegeu la figura de sota).
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/dao.png" width="100%" alt="Aplicació del Patró *Data Acces Object* per separar la capa de persistència de la lògica de negoci">
+        <figcaption><p>Aplicació del Patró *Data Acces Object* per separar la capa de persistència de la lògica de negoci</p></figcaption>
+    </figure>
+</div>
+
+El flux de treball d'aquest patró és el següent:
+1. Quan el *Controller* (o qualsevol objecte de la lògica de negoci) necessita accedir a les dades, crea un objecte *ModelDAO*
+2. Fet això, el *Controller* demana que el *ModelDAO* executi l'accés a dades necessari i, per tant, el *ModelDAO*:
+    1. accedeix a les dades,
+    2. crea l'objecte *Model* corresponent i
+    3. retorna aquest objecte *Model* amb les dades sol·licitades.
+3. A partir d'aquí, el *Controller* pot retornar el *Model* a la *View* per presentar les dades directament o, per contra, pot realitzar operacions sobre aquest *Model* que, ben segur, en provocaran la seva modificació. Si passa això, el *Controller* haurà de demanar al *ModelDAO* que també actualitzi la font de dades.
+
+El patró *Data Access Object* està molt relacionat amb el patró *Factory Method*, que s'estudia en el següent apartat.
+
+{% hint style="warning" icon="pen" %}
+**Exercici**
+
+Recupera i modifica el codi de l'exercici anterior per tal que l'encarregada de tractar el fitxer `CSV` amb les dades dels productes sigui la classe `ProductDAO`. En aquesta implementació, la classe `ProductCatalog` serà, simplement, un reflex de `ProductDAO`, però en el següent apartat això ja variarà.
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/dao_uml_example.png" width="100%" alt="Diagrama UML de Classes amb l'aplicació el Patró *Data Acces Object*">
+        <figcaption><p>Diagrama UML de Classes amb l'aplicació el Patró *Data Acces Object*</p></figcaption>
     </figure>
 </div>
 

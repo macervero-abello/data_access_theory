@@ -1,0 +1,58 @@
+@startuml
+
+skinparam linestyle ortho
+
+class SaleTerminal {
+    - ArrayList<Sale> sales;
+    - ProductCatalog catalog;
+}
+
+class Sale {
+    - SaleReceipt receipt;
+    - Payment payment;
+    - boolean ended;
+}
+
+class ProductCatalog {}
+
+class SaleReceipt {
+    - ArrayList<ReceiptLine> lines;
+    - float discount;
+    - LocalDate date;
+    - LocalTime hour;
+}
+
+class Payment {
+    - float payment;
+}
+
+class ReceiptLine {
+    - Product product;
+    - int quantity;
+}
+
+class Product {
+    - String barcode;
+    - String name;
+    - float price;
+    - float taxes;
+}
+
+class ProductDAO {
+    ArrayList<Product> products;
+}
+
+Sale -u-* SaleTerminal
+ProductCatalog -l-* SaleTerminal
+
+ProductDAO <-u- ProductCatalog
+
+Product -u-* ProductDAO
+
+SaleReceipt -u-* Sale
+Payment -l-* Sale
+
+Product -l-* ReceiptLine
+ReceiptLine -l-*SaleReceipt
+
+@enduml
