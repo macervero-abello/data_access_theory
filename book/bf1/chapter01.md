@@ -77,7 +77,10 @@ El patró d'assignació de responsabilitats *Expert* està molt relacionat amb e
 {% hint style="warning" icon="pen" %}
 **Exercici**
 
-Donat el diagrama de classes UML que es mostra a continuació, cal declarar i implementar tots els mètodes necessaris per poder assolir la funcionalitat *obtenir el total del tiquet de la compra*. El llenguatge que s'ha d'utilitzar és Java.
+Donat el diagrama de classes UML que es mostra a sota de d'aquest enunciat, cal declarar i implementar tots els mètodes necessaris per poder assolir la funcionalitat *obtenir el total del tiquet de la compra*. El llenguatge que s'ha d'utilitzar és Java.
+
+Atenció, només s'han d'implementar els mètodes estrictament necessaris. A més a més, tampoc fa falta crear el constructor, ja que, de moment,  es treballarà amb el constructor per defecte que garanteix Java.
+{% endhint %}
 
 <div data-with-frame="true">
     <figure>
@@ -85,9 +88,6 @@ Donat el diagrama de classes UML que es mostra a continuació, cal declarar i im
         <figcaption><p>Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*</p></figcaption>
     </figure>
 </div>
-
-Atenció, només s'han d'implementar els mètodes estrictament necessaris. A més a més, tampoc fa falta crear el constructor, ja que, de moment,  es treballarà amb el constructor per defecte que garanteix Java.
-{% endhint %}
 
 ### Patró d'assignació de responsabilitats *Creator*
 El Patró *Creator* indica quina classe és la responsable de crear una nova instància d'una altra classe i es regeix per les normes següents:
