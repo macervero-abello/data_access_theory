@@ -84,7 +84,7 @@ Atenció, només s'han d'implementar els mètodes estrictament necessaris. A mé
 
 <div data-with-frame="true">
     <figure>
-        <img src="img/ch01/expert_uml_example.png" width="512" style="max-width:none!important;" alt="Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*">
+        <img src="img/ch01/expert_uml_example.png" width="100%" alt="Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*">
         <figcaption><p>Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Expert*</p></figcaption>
     </figure>
 </div>
