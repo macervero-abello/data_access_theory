@@ -295,7 +295,7 @@ Un possible codi resultant és el següent:
         public static final int SMS_NOTIFICATION = 0;
         public static final int EMAIL_NOTIFICATION = 1;
     
-        public String sendNotification(int type; String recipient, String msg) {
+        public String sendNotification(int type, String recipient, String msg) {
             Notification notification = null;
             String result = "";
 
@@ -333,4 +333,210 @@ La primera opció és més senzilla (implementa el patró *Simple Factory*, una 
 ### Implementació de l'opció 1: *Simple Factory*
 El diagrama UML corresponent a aquesta opció seria el següent:
 
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_example_3.png" width="100%" alt="Diagrama UML de Classes aplicant el patró *Factory Method* mitjançant *Simple Factory*">
+        <figcaption><p>Diagrama UML de Classes aplicant el patró *Factory Method* mitjançant *Simple Factory*</p></figcaption>
+    </figure>
+</div>
 
+Es pot comprovar que, en aquest cas, l'acoblament es traspassa a la classe *factory*. A canvi, però, la classe principal del sistema (`NotificationSystem`) queda completament alliberada.
+
+El codi d'aquest cas seria el que es mostra a continuació.
+```java
+    public interface Notification {
+        public void addRecipient(String recipient);
+        public void saveMessage(String msg);
+        public String sendNotification();
+    }
+
+
+    public class SMSNotification implements Notification {
+        private String phone;
+        private String msg;
+
+        public SMSNotification() {
+            this.phone = "";
+            this.msg = "";
+        }
+
+        public void addRecipient(String recipient) {
+            this.phone = recipient;
+        }
+
+        public void saveMessage(String msg) {
+            this.msg = msg;
+        }
+
+        public String sendNotification() {
+            return "Enviant SMS al telèfon " + this.phone + "...\n Missatge enviat: " + this.msg;
+        }
+    }
+
+    public class EMailNotification implements Notification {
+        private String email;
+        private String msg;
+
+        public EMailNotification() {
+            this.email = "";
+            this.msg = "";
+        }
+
+        public void addRecipient(String recipient) {
+            this.email = recipient;
+        }
+
+        public void saveMessage(String msg) {
+            this.msg = msg;
+        }
+
+        public String sendNotification() {
+            return "Enviant correu electrònic a l'adreça " + this.email + "...\n Missatge enviat: " + this.msg;
+        }
+    }
+
+    public class NotificationSimpleFactory {
+        public static final int SMS_NOTIFICATION = 0;
+        public static final int EMAIL_NOTIFICATION = 1;
+
+        public Notification createNotification(int type) {
+            Notification notification = null;
+
+            if(type == NotificationSystem.SMS_NOTIFICATION) {
+                notification = new SMSNotification();
+            } else if(type == NotificationSystem.EMAIL_NOTIFICATION) {
+                notification = new EMailNotification();
+            }
+            
+            return notification;
+        }
+
+    }
+
+    public class NotificationSystem {
+        public String sendNotification(int type, String recipient, String msg) {
+            NotificationSimpleFactory factory = new NotificationSimpleFactory();
+            Notification notification = factory.createNotification(type);
+            String result = "";
+
+            if(notification != null) {
+                notification.addRecipient(recipient);
+                notification.saveMessage(msg);
+                result = notification.sendNotification();
+            }
+
+            return result
+        }
+    }
+```
+
+### Implementació de l'opció 2: jerarquia de *factories* (*Factory Method* estàndard)
+En aquest cas, es minimitza l'acoblament generalitzat de l'aplicació afegint una jerarquia de *factories* equivalent a la dels objectes que es volen crear.
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_example_4.png" width="100%" alt="Diagrama UML de Classes aplicant el patró *Factory Method* estàndard">
+        <figcaption><p>Diagrama UML de Classes aplicant el patró *Factory Method* estàndard</p></figcaption>
+    </figure>
+</div>
+
+El codi d'aquest cas seria el que es mostra a continuació.
+```java
+    public interface Notification {
+        public void addRecipient(String recipient);
+        public void saveMessage(String msg);
+        public String sendNotification();
+    }
+
+
+    public class SMSNotification implements Notification {
+        private String phone;
+        private String msg;
+
+        public SMSNotification() {
+            this.phone = "";
+            this.msg = "";
+        }
+
+        public void addRecipient(String recipient) {
+            this.phone = recipient;
+        }
+
+        public void saveMessage(String msg) {
+            this.msg = msg;
+        }
+
+        public String sendNotification() {
+            return "Enviant SMS al telèfon " + this.phone + "...\n Missatge enviat: " + this.msg;
+        }
+    }
+
+    public class EMailNotification implements Notification {
+        private String email;
+        private String msg;
+
+        public EMailNotification() {
+            this.email = "";
+            this.msg = "";
+        }
+
+        public void addRecipient(String recipient) {
+            this.email = recipient;
+        }
+
+        public void saveMessage(String msg) {
+            this.msg = msg;
+        }
+
+        public String sendNotification() {
+            return "Enviant correu electrònic a l'adreça " + this.email + "...\n Missatge enviat: " + this.msg;
+        }
+    }
+
+    public interface NotificationFactory {
+        public Notification createNotification();
+    }
+
+    public SMSNotificationFactory implements NotificationFactory {
+        public Notification createNotification() {
+            return new SMSNotification();
+        }
+    }
+
+    public EMailNotificationFactory implements NotificationFactory {
+        public Notification createNotification() {
+            return new EMailNotificationFactory();
+        }
+    }
+
+    public class NotificationSystem {
+        public String sendNotification(NotificationFactory factory, String recipient, String msg) {
+            Notification notification = factory.createNotification();
+            String result;
+
+            notification.addRecipient(recipient);
+            notification.saveMessage(msg);
+            result = notification.sendNotification();
+
+            return result
+        }
+    }
+```
+
+{% hint style="warning" icon="pen" %}
+**Exercici**
+
+Més endavant es presentarà un exercici on s'haurà d'aplicar el patró *Factory Method* a l'exercici que s'ha anat ampliant al llarg d'aquest capítol, però abans de poder-ho fer cal conéixer altres conceptes que es presenten als Capítols 2 i 3 del llibre.
+
+Així doncs, per practicar el *Factory Method* es demana que s'apliqui aquest patró, tant en la seva versió *Simple Factory* com en la seva versió estàndard, sobre el diagrama UML que es mostra a continuació. Aquest patró ha de permetre crear objectes de tipus `Pizza`.
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_pizza_uml_example.png" width="100%" alt="Diagrama UML de Classes per aplicar el patró *Factory Method*">
+        <figcaption><p>Diagrama UML de Classes per aplicar el patró *Factory Method*</p></figcaption>
+    </figure>
+</div>
+
+Implementa totes les classes implicades en aquest exercici, així com també el programa `main`, que farà d'interfície gràfica.
+
+{% endhint %}
