@@ -313,7 +313,7 @@ Un possible codi resultant és el següent:
                 result = notification.sendNotification();
             }
 
-            return result
+            return result;
         }
     }
 ```
@@ -341,5 +341,43 @@ El diagrama UML corresponent a aquesta opció seria el següent:
         <figcaption><p>Reducció de l'acoblament mitjançant l'ús d'una *Simple Factory*</p></figcaption>
     </figure>
 </div>
+
+En aquest cas apareix la classe `NotificationSimpleFactory`, la qual serà l'encarregada de crear la notificació adequada utilitzant el seu *Factory Method* `createNotification()`. D'aquesta manera s'aconsegueix que el sistema `NotificationSystem` quedi completament desacoblat dels diversos tipus de notificacions existents. En cas que es vulgui afegir un nou tipus de notificació, simplement s'ha d'afegir una nova classe que implementi `Notification` i fer una petita modificació al *Factory Method* `createNotification()`.
+
+Vegeu com queda el codi de `NotificationSimpleFactory` i de `NotificationSystem` a continuació (la resta, no canvia):
+```java
+    public class NotificationSimpleFactory {
+        public static final int SMS_NOTIFICATION = 0;
+        public static final int EMAIL_NOTIFICATION = 1;
+
+        public Notification createNotification(int type;) {
+            Notification notification = null;
+
+            if(type == NotificationSystem.SMS_NOTIFICATION) {
+                notification = new SMSNotification();
+            } else if(type == NotificationSystem.EMAIL_NOTIFICATION) {
+                notification = new EMailNotification();
+            }
+
+            return notification;
+        }
+    }
+
+    public class NotificationSystem {
+        public String sendNotification(int type; String recipient, String msg) {
+            NotificationSimpleFactory notificationsf = new NotificationSimpleFactory();
+            Notification notification = notificationsf.createNotification(type);
+            String result = "";
+
+            if(notification != null) {
+                notification.addRecipient(recipient);
+                notification.saveMessage(msg);
+                result = notification.sendNotification();
+            }
+
+            return result;
+        }
+    }
+```
 
 
