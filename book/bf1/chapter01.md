@@ -297,7 +297,7 @@ Un possible codi resultant és el següent:
         public static final int SMS_NOTIFICATION = 0;
         public static final int EMAIL_NOTIFICATION = 1;
     
-        public String sendNotification(int type; String recipient, String msg) {
+        public String sendNotification(int type, String recipient, String msg) {
             Notification notification = null;
             String result = "";
 
@@ -350,7 +350,7 @@ Vegeu com queda el codi de `NotificationSimpleFactory` i de `NotificationSystem`
         public static final int SMS_NOTIFICATION = 0;
         public static final int EMAIL_NOTIFICATION = 1;
 
-        public Notification createNotification(int type;) {
+        public Notification createNotification(int type) {
             Notification notification = null;
 
             if(type == NotificationSystem.SMS_NOTIFICATION) {
@@ -364,7 +364,7 @@ Vegeu com queda el codi de `NotificationSimpleFactory` i de `NotificationSystem`
     }
 
     public class NotificationSystem {
-        public String sendNotification(int type; String recipient, String msg) {
+        public String sendNotification(int type, String recipient, String msg) {
             NotificationSimpleFactory notificationsf = new NotificationSimpleFactory();
             Notification notification = notificationsf.createNotification(type);
             String result = "";
@@ -380,4 +380,57 @@ Vegeu com queda el codi de `NotificationSimpleFactory` i de `NotificationSystem`
     }
 ```
 
+### Implementació de l'opció 2: jerarquia de *factories*
+El diagrama UML corresponent a aquesta opció seria el següent:
 
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_example_4.png" width="100%" alt="Reducció de l'acoblament mitjançant l'ús d'una jerarquina de *factories*">
+        <figcaption><p>Reducció de l'acoblament mitjançant l'ús d'una jerarquina de *factories*</p></figcaption>
+    </figure>
+</div>
+
+Com es pot veure, aquesta opció consisteix a generar una jerarquia de *factories* paral·lela a la dels objectes que volem crear, de tal manera l'arrel pot ser una classe *normal*, una classe abstracta o, com en aquest cas, una interfície (`NotificationFactory`). Sigui com sigui, ha de declarar el *Factory Method* (`createNotification()`) que hauran d'implementar totes les classes de la seva jerarquia.
+
+Com es pot observar, aquest *Factory Method* ja no està parametritzat perquè cada *factory* crearà l'objecte sobre el qual està especialitzada. Per exemple, `SMSNotificationFactory` crearà un objecte de `SMSNotification` i EMailNotificationFactory` crearà un objecte d'`EMailNotification`.
+
+El sistema `NotificationSystem` queda desacoblat de tot plegat perquè, tal com es pot observar al diagrama, el seu mètode `createNotification()` rep per paràmetre la *factory* corresponent a l'objecte que es vol crear.
+
+Vegeu com queda el codi de `NotificationSimpleFactory` i de la jerarquia de *factories* a continuació (la resta, no canvia):
+
+```java
+    public interface NotificationFactory {
+        public Notification createNotification();
+    }
+
+    public class SMSNotificationFactory implements NotificationFactory{
+        public Notification createNotification() {
+            return new SMSNotification();
+        }
+    }
+
+    public class EMailNotificationFactory implements NotificationFactory{
+        public Notification createNotification() {
+            return new EMailNotification();
+        }
+    }
+
+    public class NotificationSystem {
+        public String sendNotification(NotificationFactory factory, String recipient, String msg) {
+            Notification notification = factory.createNotification();
+            String result = "";
+
+            if(notification != null) {
+                notification.addRecipient(recipient);
+                notification.saveMessage(msg);
+                result = notification.sendNotification();
+            }
+
+            return result;
+        }
+    }
+```
+
+En cas que es vulgui afegir un nou tipus de notificació, caldrà ampliar les dues jerarquies de manera paral·lela, creant tant la notificació com la seva *factory* corresponent.
+
+Es pot comprovar que aquest segona opció permet ampliar el sistema amb més facilitat i sense perill d'introduir errors en codi ja existent (no es modifica el *Factory Method*, com sí que passa en el cas anterior, sinó que es crea una nova classe *factoria* de nou). Ara però, l'objecte que invoqui el mètode `sendNotification()` de la classe `NotificationSystem` quedarà acoblat a tota la jerarquia de *factories*. Per contra, si s'utilitza una *Simple Factory* cal anar amb més compte en el moment de realitzar les amplicacions però, l'acoblament es manté reduït sempre.
