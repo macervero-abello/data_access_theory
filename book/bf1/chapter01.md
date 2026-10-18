@@ -183,14 +183,15 @@ Codi de barres;Nom;Preu unitari;IVA
 Implementa totes les classes implicades en aquest exercici, així com també el programa `main`, que farà d'interfície gràfica.
 La lectura i el tractament del fitxer la pots fer mitjançant la lectura clàssica o mitjançant *streams*.
 
+Trobareu el diagrama de classes UML a sota d'aquest enunciat.
+{% endhint %}
+
 <div data-with-frame="true">
     <figure>
         <img src="img/ch01/controller_uml_example.png" width="100%" alt="Diagrama UML de Classes amb l'aplicació el Patró *Controller*">
         <figcaption><p>Diagrama UML de Classes amb l'aplicació el Patró *Controller*</p></figcaption>
     </figure>
 </div>
-
-{% endhint %}
 
 ## Patró estructural *Data Access Object* (DAO)
 El patró *Data Access Object** (DAO) és un patró estructural que permet aïllar la lògica de negoci (el nucli del programa) de la capa de persistència, és a dir, de les múlitples fonts de dades a les quals pot accedir (bases de dades relacionals, fitxers, bases de dades documentals, etc.). D'aquesta manera, l'aplicació pot obtenir les dades a través de les típiques operacions CRUD (*Create*, *Read*, *Update* i *Delete*) sense necessitat de conèixer l'estructura interna de la font a la qual s'està accedint, ja que aquestes operacions les fa l'objecte DAO (vegeu la figura de sota).
@@ -217,14 +218,15 @@ El patró *Data Access Object* està molt relacionat amb el patró *Factory Meth
 
 Recupera i modifica el codi de l'exercici anterior per tal que l'encarregada de tractar el fitxer `CSV` amb les dades dels productes sigui la classe `ProductDAO`. En aquesta implementació, la classe `ProductCatalog` serà, simplement, un reflex de `ProductDAO`, però en el següent apartat això ja variarà.
 
+Trobareu el diagrama de classes UML a sota d'aquest enunciat.
+{% endhint %}
+
 <div data-with-frame="true">
     <figure>
         <img src="img/ch01/dao_uml_example.png" width="100%" alt="Diagrama UML de Classes amb l'aplicació el Patró *Data Acces Object*">
         <figcaption><p>Diagrama UML de Classes amb l'aplicació el Patró *Data Acces Object*</p></figcaption>
     </figure>
 </div>
-
-{% endhint %}
 
 ## Patró clàssic de creació *Factory Method*
 Donada una jerarquia d'objectes, el patró *Factory Method* consisteix a crear un mètode que permeti crear una instància d'una de les classes de la jerarquia en concret, de tal manera que l'objecte que invoca aquest mètode no ha de conéixer la classe en concret de l'objecte que està creant, sinó només la seva superclasse. D'aquesta manera s'aconsegueix un major desacoblament dins del codi.
@@ -332,5 +334,12 @@ La primera opció és més senzilla (implementa el patró *Simple Factory*, una 
 
 ### Implementació de l'opció 1: *Simple Factory*
 El diagrama UML corresponent a aquesta opció seria el següent:
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_example_3.png" width="100%" alt="Reducció de l'acoblament mitjançant l'ús d'una *Simple Factory*">
+        <figcaption><p>Reducció de l'acoblament mitjançant l'ús d'una *Simple Factory*</p></figcaption>
+    </figure>
+</div>
 
 

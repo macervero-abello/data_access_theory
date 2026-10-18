@@ -10,7 +10,7 @@ class NotificationSimpleFactory {
     + static final int SMS_NOTIFICATION = 0;
     + static final int EMAIL_NOTIFICATION = 1;
     
-    + createNotification(): Notification;
+    + createNotification(int type): Notification;
 }
 
 interface Notification {
