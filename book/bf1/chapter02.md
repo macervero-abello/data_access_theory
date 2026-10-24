@@ -38,43 +38,43 @@ En concret, la nova subclasse haurà de sobreescriure els mètodes heretats més
 Imaginem que tenim el següent document XML amb el seu DTD (*Document Type Definition*) corresponent:
 
 {% tabs %}
-    {% tab title="DTD tournament.dtd" %}
-        ```dtd
-        <!ELEMENT tournament (name, videogame, player+)>
+{% tab title="DTD tournament.dtd" %}
+```dtd
+<!ELEMENT tournament (name, videogame, player+)>
 
-        <!ELEMENT name (#PCDATA)>
-        <!ELEMENT videogame (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT videogame (#PCDATA)>
 
-        <!ELEMENT player (name, team, points)>
-        <!ATTLIST player id ID #REQUIRED>
+<!ELEMENT player (name, team, points)>
+<!ATTLIST player id ID #REQUIRED>
 
-        <!ELEMENT team (#PCDATA)>
-        <!ELEMENT points (#PCDATA)>
-        ```
-    {% endtab %}
-    {% tab title="Document XML tournament.xml" %}
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE tournament SYSTEM "tournament.dtd">
+<!ELEMENT team (#PCDATA)>
+<!ELEMENT points (#PCDATA)>
+```
+{% endtab %}
+{% tab title="Document XML tournament.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tournament SYSTEM "tournament.dtd">
 
-        <tournament>
-            <name>Gaming Cup 2026</name>
-            <videogame>Valorant</videogame>
+<tournament>
+    <name>Gaming Cup 2026</name>
+    <videogame>Valorant</videogame>
 
-            <player id="P01">
-                <name>Laia</name>
-                <team>Pixel Warriors</team>
-                <points>250</points>
-            </player>
+    <player id="P01">
+        <name>Laia</name>
+        <team>Pixel Warriors</team>
+        <points>250</points>
+    </player>
 
-            <player id="P02">
-                <name>Marc</name>
-                <team>Cyber Dragons</team>
-                <points>320</points>
-            </player>
-        </tournament>
-        ```
-    {% endtab %}
+    <player id="P02">
+        <name>Marc</name>
+        <team>Cyber Dragons</team>
+        <points>320</points>
+    </player>
+</tournament>
+```
+{% endtab %}
 {% endtabs %}
 
 El procés per per poder-ne llegir les dades consisteix a seguir els passos següents:
@@ -89,68 +89,68 @@ A continuació es mostra i s'explica tot el codi necessari, tenint en compte que
 **Classes `Player` i `Tounament`**
 
 {% tabs %}
-    {% tab title="Class `Player`" %}
-        ```java
-        package cat.inscaparrella.dam2.model;
+{% tab title="Class `Player`" %}
+```java
+package cat.inscaparrella.dam2.model;
 
-        public class Player {
-            private String id;
-            private String name;
-            private String team;
-            private int points;
+public class Player {
+    private String id;
+    private String name;
+    private String team;
+    private int points;
 
-            public Player() {
-                this.id = "";
-                this.name = "";
-                this.team = "";
-                this.points = 0;
-            }
+    public Player() {
+        this.id = "";
+        this.name = "";
+        this.team = "";
+        this.points = 0;
+    }
 
-            public void setId(String id) { this.id = id; }
-            public void setName(String name) { this.name = name; }
-            public void setTeam(String team) { this.team = team; }
-            public void setPoints(int points) { this.points = points; }
+    public void setId(String id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
+    public void setTeam(String team) { this.team = team; }
+    public void setPoints(int points) { this.points = points; }
 
-            @Override
-            public String toString() {
-                return "Player [ id=" + id +
-                        ", name=" + name +
-                        ", team=" + team +
-                        ", points=" + points + " ]";
-            }
-        }
-        ```
-    {% endtab %}
-    {% tab title="Classe Tournament" %}
-        ```java
-        package cat.inscaparrella.dam2.model;
+    @Override
+    public String toString() {
+        return "Player [ id=" + id +
+                ", name=" + name +
+                ", team=" + team +
+                ", points=" + points + " ]";
+    }
+}
+```
+{% endtab %}
+{% tab title="Classe Tournament" %}
+```java
+package cat.inscaparrella.dam2.model;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
-        public class Tournament {
-            private String name;
-            private String videogame;
-            private ArrayList<Player> players;
+public class Tournament {
+    private String name;
+    private String videogame;
+    private ArrayList<Player> players;
 
-            public Tournament() {
-                this.name = "";
-                this.videogame = "";
-                this.players = new ArrayList<>();
-            }
+    public Tournament() {
+        this.name = "";
+        this.videogame = "";
+        this.players = new ArrayList<>();
+    }
 
-            public void setName(String name) { this.name = name; }
-            public void setVideogame(String videogame) { this.videogame = videogame; }
-            public void addPlayer(Player player) { this.players.add(player); }
+    public void setName(String name) { this.name = name; }
+    public void setVideogame(String videogame) { this.videogame = videogame; }
+    public void addPlayer(Player player) { this.players.add(player); }
 
-            @Override
-            public String toString() {
-                return "Tournament [ name=" + name +
-                        ", videogame=" + videogame +
-                        ", players=" + players.toString() + " ]";
-            }
-        }
-        ```
-    {% endtab %}
+    @Override
+    public String toString() {
+        return "Tournament [ name=" + name +
+                ", videogame=" + videogame +
+                ", players=" + players.toString() + " ]";
+    }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 Com es pot observar, són classes senzilles i bàsiques l'únic objectiu de les quals poder representar les entitats del fitxer.
@@ -338,116 +338,116 @@ G01;SÍ;Cyberpunk;CD PROJEKT RED;2020;Action RPG;[PC,PlayStation 5,XboxSeries X|
 {% endhint %}
 
 {% tabs %}
-    {% tab title="DTD gaming.dtd" %}
-        ```dtd
-        <!ELEMENT gaming (service, videogames, players)>
+{% tab title="DTD gaming.dtd" %}
+```dtd
+<!ELEMENT gaming (service, videogames, players)>
 
-        <!ELEMENT service (name, country, creationYear)>
-        <!ELEMENT name (#PCDATA)>
-        <!ELEMENT country (#PCDATA)>
-        <!ELEMENT creationYear (#PCDATA)>
+<!ELEMENT service (name, country, creationYear)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT creationYear (#PCDATA)>
 
-        <!ELEMENT videogames (videogame+)>
+<!ELEMENT videogames (videogame+)>
 
-        <!ELEMENT videogame (title, developer, releaseYear, genre, platforms)>
-        <!ATTLIST videogame
-            id ID #REQUIRED
-            available (true | false) #REQUIRED
-        >
+<!ELEMENT videogame (title, developer, releaseYear, genre, platforms)>
+<!ATTLIST videogame
+    id ID #REQUIRED
+    available (true | false) #REQUIRED
+>
 
-        <!ELEMENT title (#PCDATA)>
-        <!ELEMENT developer (#PCDATA)>
-        <!ELEMENT releaseYear (#PCDATA)>
-        <!ELEMENT genre (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT developer (#PCDATA)>
+<!ELEMENT releaseYear (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
 
-        <!ELEMENT platforms (platform+)>
-        <!ELEMENT platform (#PCDATA)>
+<!ELEMENT platforms (platform+)>
+<!ELEMENT platform (#PCDATA)>
 
-        <!ELEMENT players (player+)>
+<!ELEMENT players (player+)>
 
-        <!ELEMENT player (nickname, level, favoriteGame)>
-        <!ATTLIST player id ID #REQUIRED>
+<!ELEMENT player (nickname, level, favoriteGame)>
+<!ATTLIST player id ID #REQUIRED>
 
-        <!ELEMENT nickname (#PCDATA)>
-        <!ELEMENT level (#PCDATA)>
-        <!ELEMENT favoriteGame (#PCDATA)>
-        ```
-    {% endtab %}
-    {% tab title="Document XML" %}
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE gaming SYSTEM "gaming.dtd">
+<!ELEMENT nickname (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
+<!ELEMENT favoriteGame (#PCDATA)>
+```
+{% endtab %}
+{% tab title="Document XML" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gaming SYSTEM "gaming.dtd">
 
-        <gaming>
-            <service>
-                <name>GameZone</name>
-                <country>Spain</country>
-                <creationYear>2022</creationYear>
-            </service>
+<gaming>
+    <service>
+        <name>GameZone</name>
+        <country>Spain</country>
+        <creationYear>2022</creationYear>
+    </service>
 
-            <videogames>
-                <videogame id="G01" available="true">
-                    <title>Cyberpunk 2077</title>
-                    <developer>CD PROJEKT RED</developer>
-                    <releaseYear>2020</releaseYear>
-                    <genre>Action RPG</genre>
+    <videogames>
+        <videogame id="G01" available="true">
+            <title>Cyberpunk 2077</title>
+            <developer>CD PROJEKT RED</developer>
+            <releaseYear>2020</releaseYear>
+            <genre>Action RPG</genre>
 
-                    <platforms>
-                        <platform>PC</platform>
-                        <platform>PlayStation 5</platform>
-                        <platform>Xbox Series X|S</platform>
-                    </platforms>
-                </videogame>
+            <platforms>
+                <platform>PC</platform>
+                <platform>PlayStation 5</platform>
+                <platform>Xbox Series X|S</platform>
+            </platforms>
+        </videogame>
 
-                <videogame id="G02" available="true">
-                    <title>Minecraft</title>
-                    <developer>Mojang Studios</developer>
-                    <releaseYear>2011</releaseYear>
-                    <genre>Sandbox</genre>
+        <videogame id="G02" available="true">
+            <title>Minecraft</title>
+            <developer>Mojang Studios</developer>
+            <releaseYear>2011</releaseYear>
+            <genre>Sandbox</genre>
 
-                    <platforms>
-                        <platform>PC</platform>
-                        <platform>PlayStation 5</platform>
-                        <platform>Xbox Series X|S</platform>
-                        <platform>Nintendo Switch</platform>
-                    </platforms>
-                </videogame>
+            <platforms>
+                <platform>PC</platform>
+                <platform>PlayStation 5</platform>
+                <platform>Xbox Series X|S</platform>
+                <platform>Nintendo Switch</platform>
+            </platforms>
+        </videogame>
 
-                <videogame id="G03" available="true">
-                    <title>Fortnite</title>
-                    <developer>Epic Games</developer>
-                    <releaseYear>2017</releaseYear>
-                    <genre>Battle Royale</genre>
+        <videogame id="G03" available="true">
+            <title>Fortnite</title>
+            <developer>Epic Games</developer>
+            <releaseYear>2017</releaseYear>
+            <genre>Battle Royale</genre>
 
-                    <platforms>
-                        <platform>PC</platform>
-                        <platform>PlayStation 5</platform>
-                        <platform>Xbox Series X|S</platform>
-                        <platform>Nintendo Switch</platform>
-                    </platforms>
-                </videogame>
-            </videogames>
+            <platforms>
+                <platform>PC</platform>
+                <platform>PlayStation 5</platform>
+                <platform>Xbox Series X|S</platform>
+                <platform>Nintendo Switch</platform>
+            </platforms>
+        </videogame>
+    </videogames>
 
-            <players>
-                <player id="P01">
-                    <nickname>ShadowNinja</nickname>
-                    <level>42</level>
-                    <favoriteGame>G01</favoriteGame>
-                </player>
+    <players>
+        <player id="P01">
+            <nickname>ShadowNinja</nickname>
+            <level>42</level>
+            <favoriteGame>G01</favoriteGame>
+        </player>
 
-                <player id="P02">
-                    <nickname>AlexCraft</nickname>
-                    <level>27</level>
-                    <favoriteGame>G02</favoriteGame>
-                </player>
+        <player id="P02">
+            <nickname>AlexCraft</nickname>
+            <level>27</level>
+            <favoriteGame>G02</favoriteGame>
+        </player>
 
-                <player id="P03">
-                    <nickname>VictoryRoyale</nickname>
-                    <level>56</level>
-                    <favoriteGame>G03</favoriteGame>
-                </player>
-            </players>
-        </gaming>
-        ```
-    {% endtab %}
+        <player id="P03">
+            <nickname>VictoryRoyale</nickname>
+            <level>56</level>
+            <favoriteGame>G03</favoriteGame>
+        </player>
+    </players>
+</gaming>
+```
+{% endtab %}
 {% endtabs %}
