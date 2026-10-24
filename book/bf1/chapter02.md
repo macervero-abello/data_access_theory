@@ -89,7 +89,7 @@ A continuació es mostra i s'explica tot el codi necessari, tenint en compte que
 **Classes `Player` i `Tounament`**
 
 {% tabs %}
-{% tab title="Classe `Player`" %}
+{% tab title="Classe Player" %}
 ```java
 package cat.inscaparrella.dam2.model;
 
