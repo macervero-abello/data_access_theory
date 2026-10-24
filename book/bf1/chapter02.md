@@ -373,7 +373,7 @@ G01;SÍ;Cyberpunk;CD PROJEKT RED;2020;Action RPG;[PC,PlayStation 5,XboxSeries X|
 <!ELEMENT favoriteGame (#PCDATA)>
 ```
 {% endtab %}
-{% tab title="Document XML" %}
+{% tab title="Document XML gaming.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gaming SYSTEM "gaming.dtd">
