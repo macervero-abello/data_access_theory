@@ -1,0 +1,1484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?plantuml 1.2026.3beta3?><svg
+   contentStyleType="text/css"
+   data-diagram-type="CLASS"
+   height="706.41895"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 961.26537 706.41894"
+   width="961.26538"
+   zoomAndPan="magnify"
+   id="svg65"
+   sodipodi:docname="fm_uml_exercise.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview65"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="0.5"
+     inkscape:cx="208"
+     inkscape:cy="322"
+     inkscape:window-width="1920"
+     inkscape:window-height="975"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg65">
+    <sodipodi:guide
+       position="16.43,443.12446"
+       orientation="1,0"
+       id="guide65"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="327.20806,1184.0548"
+       orientation="0,-1"
+       id="guide66"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     class="entity"
+     data-qualified-name="model.PizzaThinDough"
+     id="ent0005-6"
+     data-source-line="26"
+     style="font-family:sans-serif"
+     transform="translate(-382.24979,-71.659999)">
+    <rect
+       x="398.92999"
+       y="631.83002"
+       width="334.13699"
+       height="129.48399"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect20" />
+    <circle
+       cx="505.86099"
+       cy="647.83002"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse20-5"
+       r="11" />
+    <path
+       d="m 508.83,653.471 q -0.578,0.297 -1.219,0.437 -0.64,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.312,-1.656 -1.312,-4.781 0,-3.125 1.312,-4.782 1.328,-1.656 3.828,-1.656 0.704,0 1.344,0.156 0.656,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.594,-0.281 -1.219,-0.281 -1.343,0 -2.031,1.078 -0.687,1.063 -0.687,3.157 0,2.093 0.687,3.171 0.688,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path20" />
+    <text
+       x="526.36102"
+       y="652.677"
+       fill="#000000"
+       font-size="14px"
+       textLength="111.774"
+       id="text21-6"
+       lengthAdjust="spacing">PizzaThinDough</text>
+    <line
+       x1="399.92999"
+       y1="663.83002"
+       x2="732.06702"
+       y2="663.83002"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line21" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g21-9">
+      <rect
+         x="406.92999"
+         y="674.47803"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect21" />
+    </g>
+    <text
+       x="418.92999"
+       y="680.82501"
+       fill="#000000"
+       font-size="14px"
+       textLength="225.53799"
+       text-decoration="underline"
+       id="text22-3"
+       lengthAdjust="spacing"
+       style="text-decoration:underline;text-decoration-line:underline">THIN_DOUGH_PRICE: float = 7.5</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g22">
+      <rect
+         x="406.92999"
+         y="690.77502"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect22-7" />
+    </g>
+    <text
+       x="418.92999"
+       y="697.12201"
+       fill="#000000"
+       font-size="14px"
+       textLength="308.13699"
+       text-decoration="underline"
+       id="text23-4"
+       lengthAdjust="spacing"
+       style="text-decoration:underline;text-decoration-line:underline">THIN_DOUGH_NBASE_INGREDIENTS: int = 1</text>
+    <line
+       x1="399.92999"
+       y1="704.42401"
+       x2="732.06702"
+       y2="704.42401"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line23-5" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g23-2">
+      <circle
+         cx="409.92999"
+         cy="718.07202"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse23"
+         r="3" />
+    </g>
+    <text
+       x="418.92999"
+       y="721.41901"
+       fill="#000000"
+       font-size="14px"
+       textLength="275.017"
+       id="text24-5"
+       lengthAdjust="spacing">PizzaThinDough(nextraIngredients: int)</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g24-4">
+      <circle
+         cx="409.92999"
+         cy="734.36902"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse24"
+         r="3" />
+    </g>
+    <text
+       x="418.92999"
+       y="737.716"
+       fill="#000000"
+       font-size="14px"
+       textLength="83.903999"
+       id="text25-7"
+       lengthAdjust="spacing">bake(): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g25-4">
+      <circle
+         cx="409.92999"
+         cy="750.66602"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse25-4"
+         r="3" />
+    </g>
+    <text
+       x="418.92999"
+       y="754.013"
+       fill="#000000"
+       font-size="14px"
+       textLength="147.424"
+       id="text26-3"
+       lengthAdjust="spacing">calculatePrice(): void</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="model.PizzaThinDough"
+     data-source-line="28"
+     id="ent0006"
+     transform="translate(-5.25,-127.24997)">
+    <rect
+       fill="#f1f1f1"
+       height="129.48441"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="334.13669"
+       x="21.93"
+       y="687.41998"
+       id="rect22" />
+    <circle
+       cx="128.86121"
+       cy="703.41998"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse22"
+       r="11" />
+    <path
+       d="m 131.8299,709.0606 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path22" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="111.7744"
+       x="149.36121"
+       y="708.26672"
+       id="text23">PizzaThinDough</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="22.93"
+       x2="355.06671"
+       y1="719.41998"
+       y2="719.41998"
+       id="line23" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g23">
+      <rect
+         fill="none"
+         height="6"
+         style="stroke:#c82930;stroke-width:1"
+         width="6"
+         x="29.93"
+         y="730.06842"
+         id="rect23" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       text-decoration="underline"
+       textLength="225.5381"
+       x="41.93"
+       y="736.4151"
+       id="text24"
+       style="text-decoration:underline;text-decoration-line:underline">THIN_DOUGH_PRICE: float = 7.5</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g24">
+      <rect
+         fill="none"
+         height="6"
+         style="stroke:#c82930;stroke-width:1"
+         width="6"
+         x="29.93"
+         y="746.3653"
+         id="rect24" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       text-decoration="underline"
+       textLength="308.13669"
+       x="41.93"
+       y="752.71198"
+       id="text25"
+       style="text-decoration:underline;text-decoration-line:underline">THIN_DOUGH_NBASE_INGREDIENTS: int = 1</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="22.93"
+       x2="355.06671"
+       y1="760.01379"
+       y2="760.01379"
+       id="line25" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g25">
+      <circle
+         cx="32.93"
+         cy="773.66217"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse25"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="238.0547"
+       x="41.93"
+       y="777.00891"
+       id="text26">PizzaThinDough(ningredients: int)</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g26">
+      <circle
+         cx="32.93"
+         cy="789.95911"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse26"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="83.904297"
+       x="41.93"
+       y="793.30573"
+       id="text27">bake(): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g27">
+      <circle
+         cx="32.93"
+         cy="806.25592"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse27"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="147.4238"
+       x="41.93"
+       y="809.6026"
+       id="text28">calculatePrice(): void</text>
+  </g>
+  <g
+     class="cluster"
+     data-qualified-name="model"
+     data-source-line="1"
+     id="ent0002"
+     transform="translate(-5.25,-5.24997)">
+    <path
+       d="m 8.5,6 h 49.5215 c 1.198531,0.3635589 2.136441,1.301469 2.5,2.5 l 7,19.7969 H 746.5 c 1.38071,0 2.5,1.119288 2.5,2.5 v 677.622 c 0,1.38071 -1.11929,2.5 -2.5,2.5 H 8.5 c -1.3807119,0 -2.5,-1.11929 -2.5,-2.5 V 8.5 C 6,7.1192881 7.1192881,6 8.5,6"
+       fill="none"
+       style="stroke:#000000;stroke-width:1.5"
+       id="path1"
+       sodipodi:nodetypes="ccccsssssssc" />
+    <line
+       style="stroke:#000000;stroke-width:1.5"
+       x1="6"
+       x2="67.5215"
+       y1="28.2969"
+       y2="28.2969"
+       id="line1" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="48.5215"
+       x="10"
+       y="20.9951"
+       id="text1">model</text>
+  </g>
+  <g
+     class="cluster"
+     data-qualified-name="utils"
+     data-source-line="47"
+     id="ent0008"
+     transform="translate(-6.57255,-537.59)">
+    <path
+       d="m 775.5,538.34 h 35.5898 c 1.19853,0.36356 2.13644,1.30147 2.5,2.5 l 7,19.7969 h 143.99814 c 1.38071,0 2.5,1.11929 2.5,2.5 V 944.48 c 0,1.38071 -1.11929,2.5 -2.5,2.5 H 775.5 c -1.38071,0 -2.5,-1.11929 -2.5,-2.5 V 540.84 c 0,-1.38071 1.11929,-2.5 2.5,-2.5"
+       fill="none"
+       style="stroke:#000000;stroke-width:1.5"
+       id="path2"
+       sodipodi:nodetypes="ccccsssssssc" />
+    <line
+       style="stroke:#000000;stroke-width:1.5"
+       x1="773"
+       x2="820.58978"
+       y1="560.6369"
+       y2="560.6369"
+       id="line2" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="34.589802"
+       x="777"
+       y="553.33508"
+       id="text2">utils</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="model.Bakeable"
+     data-source-line="2"
+     id="ent0003"
+     transform="translate(-167.37,-54.139964)">
+    <rect
+       fill="#f1f1f1"
+       height="64.296898"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="109.9043"
+       x="184.05"
+       y="89.889999"
+       id="rect2" />
+    <circle
+       cx="204.91409"
+       cy="105.89"
+       fill="#b4a7e5"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse2"
+       r="11" />
+    <path
+       d="m 200.8359,101.6556 v -2.1562 h 7.3907 v 2.1562 h -2.4688 v 8.0781 h 2.4688 v 2.1563 h -7.3907 v -2.1563 h 2.4688 v -8.0781 z"
+       fill="#000000"
+       id="path3" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       font-style="italic"
+       lengthAdjust="spacing"
+       textLength="64.873001"
+       x="220.21719"
+       y="110.7367"
+       id="text3">Bakeable</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="185.05"
+       x2="292.95432"
+       y1="121.89"
+       y2="121.89"
+       id="line3" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="185.05"
+       x2="292.95432"
+       y1="129.89"
+       y2="129.89"
+       id="line4" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g4">
+      <circle
+         cx="195.05"
+         cy="143.53841"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse4"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="83.904297"
+       x="204.05"
+       y="146.8851"
+       id="text4">bake(): void</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="model.PizzaThickDough"
+     data-source-line="20"
+     id="ent0005"
+     transform="translate(-5.25,-127.24997)">
+    <rect
+       fill="#f1f1f1"
+       height="129.48441"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="342.62009"
+       x="390.69"
+       y="687.41998"
+       id="rect16" />
+    <circle
+       cx="498.397"
+       cy="703.41998"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse16"
+       r="11" />
+    <path
+       d="m 501.3658,709.0606 q -0.5781,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path16" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="118.7061"
+       x="518.89697"
+       y="708.26672"
+       id="text17">PizzaThickDough</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="391.69"
+       x2="732.31012"
+       y1="719.41998"
+       y2="719.41998"
+       id="line17" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g17">
+      <rect
+         fill="none"
+         height="6"
+         style="stroke:#c82930;stroke-width:1"
+         width="6"
+         x="398.69"
+         y="730.06842"
+         id="rect17" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       text-decoration="underline"
+       textLength="234.0215"
+       x="410.69"
+       y="736.4151"
+       id="text18"
+       style="text-decoration:underline;text-decoration-line:underline">THICK_DOUGH_PRICE: float = 9.5</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g18">
+      <rect
+         fill="none"
+         height="6"
+         style="stroke:#c82930;stroke-width:1"
+         width="6"
+         x="398.69"
+         y="746.3653"
+         id="rect18" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       text-decoration="underline"
+       textLength="316.62009"
+       x="410.69"
+       y="752.71198"
+       id="text19"
+       style="text-decoration:underline;text-decoration-line:underline">THICK_DOUGH_NBASE_INGREDIENTS: int = 2</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="391.69"
+       x2="732.31012"
+       y1="760.01379"
+       y2="760.01379"
+       id="line19" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g19">
+      <circle
+         cx="401.69"
+         cy="773.66217"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse19"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="244.9863"
+       x="410.69"
+       y="777.00891"
+       id="text20">PizzaThickDough(ningredients: int)</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g20">
+      <circle
+         cx="401.69"
+         cy="789.95911"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse20"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="83.904297"
+       x="410.69"
+       y="793.30573"
+       id="text21">bake(): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g21">
+      <circle
+         cx="401.69"
+         cy="806.25592"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse21"
+         r="3" />
+    </g>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="147.4238"
+       x="410.69"
+       y="809.6026"
+       id="text22">calculatePrice(): void</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="utils.PizzaIngredient"
+     data-source-line="53"
+     id="ent0010"
+     transform="translate(-0.57255,-537.59)">
+    <rect
+       fill="#f1f1f1"
+       height="357.64059"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="152.33501"
+       x="788.83002"
+       y="573.34003"
+       id="rect39" />
+    <circle
+       cx="809.55261"
+       cy="589.34003"
+       fill="#eb937f"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse39"
+       r="11" />
+    <path
+       d="m 813.6619,595.34 h -7.7187 v -12.3906 h 7.7187 v 2.1562 h -5.2656 v 2.6719 h 4.7656 v 2.1563 h -4.7656 v 3.25 h 5.2656 z"
+       fill="#000000"
+       id="path39" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="107.6182"
+       x="824.82422"
+       y="594.18671"
+       id="text40">PizzaIngredient</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="789.83002"
+       x2="940.16498"
+       y1="605.34003"
+       y2="605.34003"
+       id="line40" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="115.1309"
+       x="794.83002"
+       y="622.33508"
+       id="text41">TOMATO_SAUCE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="86.016602"
+       x="794.83002"
+       y="638.63202"
+       id="text42">MOZARELLA</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="100.5293"
+       x="794.83002"
+       y="654.92889"
+       id="text43">BASIL_LEAVES</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="81.334"
+       x="794.83002"
+       y="671.22571"
+       id="text44">ARTICHOKE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="82.810501"
+       x="794.83002"
+       y="687.52258"
+       id="text45">ANCHOVIES</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="85.585899"
+       x="794.83002"
+       y="703.81952"
+       id="text46">MUSHROOM</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="79.078102"
+       x="794.83002"
+       y="720.11639"
+       id="text47">FRIED_EGG</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="99.223602"
+       x="794.83002"
+       y="736.41321"
+       id="text48">BLUE_CHEESE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="140.33501"
+       x="794.83002"
+       y="752.71008"
+       id="text49">PARMESAN_CHEESE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="124.0586"
+       x="794.83002"
+       y="769.00702"
+       id="text50">RICOTTA_CHEESE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="68.024399"
+       x="794.83002"
+       y="785.30389"
+       id="text51">ARUGULA</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="100.0781"
+       x="794.83002"
+       y="801.60071"
+       id="text52">PESTO_SAUCE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="127.2031"
+       x="794.83002"
+       y="817.89758"
+       id="text53">VIRGIN_OLIVE_OIL</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="65.789101"
+       x="794.83002"
+       y="834.19452"
+       id="text54">CHORIZO</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="47.591801"
+       x="794.83002"
+       y="850.49139"
+       id="text55">HERBS</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="47.1133"
+       x="794.83002"
+       y="866.78821"
+       id="text56">ONION</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="108.7598"
+       x="794.83002"
+       y="883.08508"
+       id="text57">CHICKEN_MEAT</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="81.402298"
+       x="794.83002"
+       y="899.38202"
+       id="text58">BEEF_MEAT</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="130.5596"
+       x="794.83002"
+       y="915.67889"
+       id="text59">BARBECUE_SAUCE</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="789.83002"
+       x2="940.16498"
+       y1="922.98059"
+       y2="922.98059"
+       id="line59" />
+  </g>
+  <g
+     id="g67"
+     transform="translate(-5.25,-5.24997)">
+    <polygon
+       fill="none"
+       points="508.8928,214.967 514.1854,210.0692 511.7,203.3 506.4074,208.1978 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon62"
+       transform="rotate(-13.703022,495.99655,366.64887)" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 472.5939,216.22939 V 263.82"
+       id="path67" />
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="model.Pizzeria"
+     id="ent0006-6"
+     data-source-line="34"
+     style="font-family:sans-serif"
+     transform="translate(-47.7145,-5.24992)">
+    <rect
+       x="426.07999"
+       y="41"
+       width="297.83099"
+       height="162.078"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect26" />
+    <circle
+       cx="543.81201"
+       cy="57"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse26-7"
+       r="11" />
+    <path
+       d="m 546.781,62.641 q -0.578,0.297 -1.219,0.437 -0.641,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.312,-1.656 -1.312,-4.781 0,-3.125 1.312,-4.782 1.328,-1.656 3.828,-1.656 0.703,0 1.344,0.156 0.656,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.594,-0.281 -1.219,-0.281 -1.344,0 -2.031,1.078 -0.688,1.063 -0.688,3.157 0,2.093 0.688,3.171 0.687,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path26" />
+    <text
+       x="564.31201"
+       y="61.847"
+       fill="#000000"
+       font-size="14px"
+       textLength="53.867001"
+       id="text27-5"
+       lengthAdjust="spacing">Pizzeria</text>
+    <line
+       x1="427.07999"
+       y1="73"
+       x2="722.91101"
+       y2="73"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line27" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g27-3">
+      <rect
+         x="434.07999"
+         y="83.648003"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect27" />
+    </g>
+    <text
+       x="446.07999"
+       y="89.995003"
+       fill="#000000"
+       font-size="14px"
+       textLength="174.009"
+       id="text28-5"
+       lengthAdjust="spacing">pizzas: ArrayList&lt;Pizza&gt;</text>
+    <line
+       x1="427.07999"
+       y1="97.296997"
+       x2="722.91101"
+       y2="97.296997"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line28" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g28">
+      <circle
+         cx="437.07999"
+         cy="110.945"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse28-6"
+         r="3" />
+    </g>
+    <text
+       x="446.07999"
+       y="114.292"
+       fill="#000000"
+       font-size="14px"
+       textLength="64.791"
+       id="text29-2"
+       lengthAdjust="spacing">Pizzeria()</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g29-9">
+      <circle
+         cx="437.07999"
+         cy="127.242"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse29"
+         r="3" />
+    </g>
+    <text
+       x="446.07999"
+       y="130.589"
+       fill="#000000"
+       font-size="14px"
+       textLength="271.83099"
+       id="text30-1"
+       lengthAdjust="spacing">bakePizza(nextraIngredients: int): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g30-2">
+      <circle
+         cx="437.07999"
+         cy="143.539"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse30-7"
+         r="3" />
+    </g>
+    <text
+       x="446.07999"
+       y="146.886"
+       fill="#000000"
+       font-size="14px"
+       textLength="251.269"
+       id="text31-0"
+       lengthAdjust="spacing">getBakedPizzas(): ArrayList&lt;Pizza&gt;</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g31-9">
+      <circle
+         cx="437.07999"
+         cy="159.836"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse31-3"
+         r="3" />
+    </g>
+    <text
+       x="446.07999"
+       y="163.183"
+       fill="#000000"
+       font-size="14px"
+       textLength="187.25"
+       id="text32-6"
+       lengthAdjust="spacing">getLastBakedPizza(): Pizza</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g32-0">
+      <circle
+         cx="437.07999"
+         cy="176.133"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse32-6"
+         r="3" />
+    </g>
+    <text
+       x="446.07999"
+       y="179.479"
+       fill="#000000"
+       font-size="14px"
+       textLength="166.91299"
+       id="text33-2"
+       lengthAdjust="spacing">getTotalBenefits(): float</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g33-6">
+      <circle
+         cx="437.07999"
+         cy="192.42999"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse33-1"
+         r="3" />
+    </g>
+    <text
+       x="446.07999"
+       y="195.776"
+       fill="#000000"
+       font-size="14px"
+       textLength="117.708"
+       id="text34-8"
+       lengthAdjust="spacing">toString(): String</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="model.Pizza"
+     id="ent0003-9"
+     data-source-line="6"
+     style="font-family:sans-serif"
+     transform="translate(-204.8925,-4.50995)">
+    <rect
+       x="439.42999"
+       y="263.07999"
+       width="253.145"
+       height="194.672"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect4-2" />
+    <circle
+       cx="543.948"
+       cy="279.07999"
+       fill="#a9dcdf"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse5-0"
+       r="11" />
+    <path
+       d="m 544.057,274.424 -1.156,5.078 h 2.328 z m -1.484,-2.235 h 2.984 l 3.36,12.391 h -2.453 l -0.766,-3.062 h -3.281 l -0.75,3.062 h -2.438 z"
+       fill="#000000"
+       id="path5-2" />
+    <text
+       x="564.448"
+       y="283.927"
+       fill="#000000"
+       font-size="14px"
+       textLength="35.608002"
+       font-style="italic"
+       id="text5-3"
+       lengthAdjust="spacing">Pizza</text>
+    <line
+       x1="440.42999"
+       y1="295.07999"
+       x2="691.57501"
+       y2="295.07999"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line5-7" />
+    <g
+       data-visibility-modifier="PROTECTED_FIELD"
+       id="g5-5">
+      <polygon
+         points="450.43,311.728 446.43,307.728 450.43,303.728 454.43,307.728 "
+         fill="none"
+         style="stroke:#b38d22;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10"
+         id="polygon5-9" />
+    </g>
+    <text
+       x="459.42999"
+       y="312.07501"
+       fill="#000000"
+       font-size="14px"
+       textLength="227.145"
+       text-decoration="underline"
+       id="text6-2"
+       lengthAdjust="spacing"
+       style="text-decoration:underline;text-decoration-line:underline">INGREDIENT_PRICE: float = 1.35</text>
+    <g
+       data-visibility-modifier="PROTECTED_FIELD"
+       id="g6-2">
+      <polygon
+         points="450.43,328.025 446.43,324.025 450.43,320.025 454.43,324.025 "
+         fill="none"
+         style="stroke:#b38d22;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10"
+         id="polygon6" />
+    </g>
+    <text
+       x="459.42999"
+       y="328.37201"
+       fill="#000000"
+       font-size="14px"
+       textLength="152.31799"
+       id="text7-8"
+       lengthAdjust="spacing">nextraIngredients: int</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g7-9">
+      <rect
+         x="447.42999"
+         y="338.32199"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect7" />
+    </g>
+    <text
+       x="459.42999"
+       y="344.66901"
+       fill="#000000"
+       font-size="14px"
+       textLength="206.77299"
+       id="text8-7"
+       lengthAdjust="spacing">ingredients: PizzaIngredient[]</text>
+    <g
+       data-visibility-modifier="PROTECTED_FIELD"
+       id="g8-3">
+      <polygon
+         points="450.43,360.619 446.43,356.619 450.43,352.619 454.43,356.619 "
+         fill="none"
+         style="stroke:#b38d22;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10"
+         id="polygon8-6" />
+    </g>
+    <text
+       x="459.42999"
+       y="360.966"
+       fill="#000000"
+       font-size="14px"
+       textLength="75.461998"
+       id="text9-1"
+       lengthAdjust="spacing">price: float</text>
+    <line
+       x1="440.42999"
+       y1="368.26801"
+       x2="691.57501"
+       y2="368.26801"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line9" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g9-2">
+      <circle
+         cx="450.42999"
+         cy="381.91599"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse9"
+         r="3" />
+    </g>
+    <text
+       x="459.42999"
+       y="385.263"
+       fill="#000000"
+       font-size="14px"
+       textLength="198.851"
+       id="text10-9"
+       lengthAdjust="spacing">Pizza(nextraIngredients: int)</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g10-3">
+      <circle
+         cx="450.42999"
+         cy="398.21301"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse10"
+         r="3" />
+    </g>
+    <text
+       x="459.42999"
+       y="401.55899"
+       fill="#000000"
+       font-size="14px"
+       textLength="108.931"
+       id="text11-1"
+       lengthAdjust="spacing">getPrice(): float</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g11-9">
+      <circle
+         cx="450.42999"
+         cy="414.51001"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse11-4"
+         r="3" />
+    </g>
+    <text
+       x="459.42999"
+       y="417.85599"
+       fill="#000000"
+       font-size="14px"
+       textLength="83.903999"
+       id="text12-7"
+       lengthAdjust="spacing">bake(): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g12-8">
+      <circle
+         cx="450.42999"
+         cy="430.80701"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse12-4"
+         r="3" />
+    </g>
+    <text
+       x="459.42999"
+       y="434.15302"
+       fill="#000000"
+       font-size="14px"
+       textLength="147.424"
+       font-style="italic"
+       id="text13-5"
+       lengthAdjust="spacing">calculatePrice(): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g13-0">
+      <circle
+         cx="450.42999"
+         cy="447.103"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse13-3"
+         r="3" />
+    </g>
+    <text
+       x="459.42999"
+       y="450.45001"
+       fill="#000000"
+       font-size="14px"
+       textLength="117.708"
+       id="text14-6"
+       lengthAdjust="spacing">toString(): String</text>
+  </g>
+  <g
+     id="g5"
+     transform="translate(-5.25,-5.24997)">
+    <polygon
+       fill="none"
+       points="267.32,154.64 274.8788,172.043 283.8088,164.0272 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon59"
+       transform="rotate(41.875596,232.95678,-121.19716)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-dasharray:6, 6;stroke-dashoffset:0"
+       d="m 74.429358,125.12806 v 95.1011 H 301.45654 V 263.82"
+       id="path4" />
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="model.PizzaThickDough"
+     id="ent0004"
+     data-source-line="18"
+     style="font-family:sans-serif"
+     transform="translate(363.74997,-71.660243)">
+    <rect
+       x="21.690001"
+       y="631.83002"
+       width="342.62"
+       height="129.48399"
+       fill="#f1f1f1"
+       style="stroke:#181818;stroke-width:0.5"
+       rx="2.5"
+       ry="2.5"
+       id="rect14" />
+    <circle
+       cx="129.397"
+       cy="647.83002"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse14"
+       r="11" />
+    <path
+       d="m 132.366,653.471 q -0.578,0.297 -1.219,0.437 -0.641,0.156 -1.344,0.156 -2.5,0 -3.828,-1.64 -1.312,-1.656 -1.312,-4.781 0,-3.125 1.312,-4.782 1.328,-1.656 3.828,-1.656 0.703,0 1.344,0.156 0.656,0.157 1.219,0.453 v 2.719 q -0.625,-0.578 -1.219,-0.844 -0.594,-0.281 -1.219,-0.281 -1.343,0 -2.031,1.078 -0.687,1.063 -0.687,3.157 0,2.093 0.687,3.171 0.688,1.063 2.031,1.063 0.625,0 1.219,-0.266 0.594,-0.281 1.219,-0.859 z"
+       fill="#000000"
+       id="path14" />
+    <text
+       x="149.897"
+       y="652.677"
+       fill="#000000"
+       font-size="14px"
+       textLength="118.706"
+       id="text15"
+       lengthAdjust="spacing">PizzaThickDough</text>
+    <line
+       x1="22.690001"
+       y1="663.83002"
+       x2="363.31"
+       y2="663.83002"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line15" />
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g15">
+      <rect
+         x="29.690001"
+         y="674.47803"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect15" />
+    </g>
+    <text
+       x="41.689999"
+       y="680.82501"
+       fill="#000000"
+       font-size="14px"
+       textLength="234.021"
+       text-decoration="underline"
+       id="text16"
+       lengthAdjust="spacing"
+       style="text-decoration:underline;text-decoration-line:underline">THICK_DOUGH_PRICE: float = 9.5</text>
+    <g
+       data-visibility-modifier="PRIVATE_FIELD"
+       id="g16">
+      <rect
+         x="29.690001"
+         y="690.77502"
+         width="6"
+         height="6"
+         fill="none"
+         style="stroke:#c82930;stroke-width:1"
+         id="rect16-0" />
+    </g>
+    <text
+       x="41.689999"
+       y="697.12201"
+       fill="#000000"
+       font-size="14px"
+       textLength="316.62"
+       text-decoration="underline"
+       id="text17-6"
+       lengthAdjust="spacing"
+       style="text-decoration:underline;text-decoration-line:underline">THICK_DOUGH_NBASE_INGREDIENTS: int = 2</text>
+    <line
+       x1="22.690001"
+       y1="704.42401"
+       x2="363.31"
+       y2="704.42401"
+       style="stroke:#181818;stroke-width:0.5"
+       id="line17-3" />
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g17-2">
+      <circle
+         cx="32.689999"
+         cy="718.07202"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse17"
+         r="3" />
+    </g>
+    <text
+       x="41.689999"
+       y="721.41901"
+       fill="#000000"
+       font-size="14px"
+       textLength="281.948"
+       id="text18-0"
+       lengthAdjust="spacing">PizzaThickDough(nextraIngredients: int)</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g18-6">
+      <circle
+         cx="32.689999"
+         cy="734.36902"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse18"
+         r="3" />
+    </g>
+    <text
+       x="41.689999"
+       y="737.716"
+       fill="#000000"
+       font-size="14px"
+       textLength="83.903999"
+       id="text19-1"
+       lengthAdjust="spacing">bake(): void</text>
+    <g
+       data-visibility-modifier="PUBLIC_METHOD"
+       id="g19-5">
+      <circle
+         cx="32.689999"
+         cy="750.66602"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse19-5"
+         r="3" />
+    </g>
+    <text
+       x="41.689999"
+       y="754.013"
+       fill="#000000"
+       font-size="14px"
+       textLength="147.424"
+       id="text20-4"
+       lengthAdjust="spacing">calculatePrice(): void</text>
+  </g>
+  <g
+     id="g8"
+     transform="translate(-5.25,-5.24997)">
+    <polygon
+       fill="none"
+       points="369.1088,502.4748 378.6879,509.7026 384.74,491.72 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon61"
+       transform="rotate(-36.981642,331.51092,494.86587)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-dasharray:none;stroke-dashoffset:0"
+       d="M 188.99834,565.41998 V 518.5 H 553.5 v 46.91974"
+       id="path7" />
+    <path
+       style="fill:none;stroke:#000000;stroke-dasharray:none;stroke-dashoffset:0"
+       d="M 372.12239,478.33244 V 518.5"
+       id="path8" />
+  </g>
+  <polygon
+     fill="#181818"
+     points="1024.08,711.62 1025.8069,701.9237 1022.8819,706.7657 1018.0399,703.8407 "
+     style="stroke:#181818;stroke-width:1"
+     id="polygon8"
+     transform="rotate(-166.09786,932.04969,562.11193)" />
+  <path
+     style="fill:none;stroke:#000000;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 878.63326,399.87169 v 80.6607 H 419.01407 v -27.29036"
+     id="path9" />
+</svg>

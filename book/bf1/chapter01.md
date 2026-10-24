@@ -434,3 +434,16 @@ Vegeu com queda el codi de `NotificationSimpleFactory` i de la jerarquia de *fac
 En cas que es vulgui afegir un nou tipus de notificació, caldrà ampliar les dues jerarquies de manera paral·lela, creant tant la notificació com la seva *factory* corresponent.
 
 Es pot comprovar que aquest segona opció permet ampliar el sistema amb més facilitat i sense perill d'introduir errors en codi ja existent (no es modifica el *Factory Method*, com sí que passa en el cas anterior, sinó que es crea una nova classe *factoria* de nou). Ara però, l'objecte que invoqui el mètode `sendNotification()` de la classe `NotificationSystem` quedarà acoblat a tota la jerarquia de *factories*. Per contra, si s'utilitza una *Simple Factory* cal anar amb més compte en el moment de realitzar les amplicacions però, l'acoblament es manté reduït sempre.
+
+{% hint style="warning" icon="pen" %}
+**Exercici**
+
+Donat el diagrama de classes UML que es mostra a sota de d'aquest enunciat, modifiqueu tot el que cregueu necessari per implementar-hi el patró *Factory Method*. Ho heu de fer utilitzant una *Simple Factory* i, després, utilitzant una jerarquia de *factories*.
+{% endhint %}
+
+<div data-with-frame="true">
+    <figure>
+        <img src="img/ch01/fm_uml_exercise.png" width="100%" alt="Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Factory Method*">
+        <figcaption><p>Diagrama UML de Classes que mostra un exemple inicial per aplicar el Patró *Factory Method*</p></figcaption>
+    </figure>
+</div>

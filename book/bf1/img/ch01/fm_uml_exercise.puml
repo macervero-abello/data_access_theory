@@ -1,0 +1,78 @@
+@startuml
+
+package model {
+    interface Bakeable {
+        + bake(): void
+    }
+
+    abstract class Pizza {
+        # {static} INGREDIENT_PRICE: float = 1.35
+        # nextraIngredients: int
+        - ingredients: PizzaIngredient[]
+        # price: float
+        + Pizza(nextraIngredients: int)
+        + getPrice(): float
+        + bake(): void
+        + {abstract} calculatePrice(): void
+        + toString(): String
+    }
+
+    class PizzaThickDough {
+        - {static} THICK_DOUGH_PRICE: float = 9.5
+        - {static} THICK_DOUGH_NBASE_INGREDIENTS: int = 2
+        + PizzaThickDough(nextraIngredients: int)
+        + bake(): void
+        + calculatePrice(): void
+    }
+
+    class PizzaThinDough {
+        - {static} THIN_DOUGH_PRICE: float = 7.5
+        - {static} THIN_DOUGH_NBASE_INGREDIENTS: int = 1
+        + PizzaThinDough(nextraIngredients: int)
+        + bake(): void
+        + calculatePrice(): void
+    }
+
+    class Pizzeria {
+        - pizzas: ArrayList<Pizza>
+        + Pizzeria()
+        + bakePizza(nextraIngredients: int): void
+        + getBakedPizzas(): ArrayList<Pizza>
+        + getLastBakedPizza(): Pizza
+        + getTotalBenefits(): float
+        + toString(): String
+    }
+}
+
+package utils {
+    enum PizzaIngredient {
+        TOMATO_SAUCE
+        MOZARELLA
+        BASIL_LEAVES
+        ARTICHOKE
+        ANCHOVIES
+        MUSHROOM
+        FRIED_EGG
+        BLUE_CHEESE
+        PARMESAN_CHEESE
+        RICOTTA_CHEESE
+        ARUGULA
+        PESTO_SAUCE
+        VIRGIN_OLIVE_OIL
+        CHORIZO
+        HERBS
+        ONION
+        CHICKEN_MEAT
+        BEEF_MEAT
+        BARBECUE_SAUCE
+    }
+}
+
+' Relacions
+Bakeable <|.. Pizza
+Pizza <|-- PizzaThickDough
+Pizza <|-- PizzaThinDough
+Pizzeria o-- Pizza
+Pizza --> PizzaIngredient
+
+@enduml
