@@ -4,3 +4,4 @@
 
 ## BF1: fitxers i BBDD relacionals. Mètode tradicional
 * [Capítol 1. Els patrons de disseny de software](book/bf1/chapter01.md)
+* [Capítol 2. Tractament de fitxers XML](book/bf1/chapter02.md)

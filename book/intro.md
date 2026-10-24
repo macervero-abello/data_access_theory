@@ -4,3 +4,4 @@ Els continguts d'aquesta guia estan basats en la versions Java 25, Hibernate ...
 
 ## BF1: fitxers i BBDD relacionals. Mètode tradicional
 * [Capítol 1. Els patrons de disseny de software](bf1/chapter01.md)
+* [Capítol 2. Tractament de fitxers XML](bf1/chapter02.md)
