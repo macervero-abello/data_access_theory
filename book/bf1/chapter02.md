@@ -331,7 +331,7 @@ Implementa un programa que permeti
 `ID;AVALIABLE;TITLE;DEVELOPER;RELEASE_YEAR;GENRE;PLATFORMS`
 
 Per exemple:
-```csv
+```
 ID;AVALIABLE;TITLE;DEVELOPER;RELEASE_YEAR;GENRE;PLATFORMS
 G01;SÍ;Cyberpunk;CD PROJEKT RED;2020;Action RPG;[PC,PlayStation 5,XboxSeries X|S]
 ```
