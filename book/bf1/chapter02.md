@@ -925,7 +925,7 @@ public class FestivalsDOMParser {
 {% endtab %}
 {% endtabs %}
 
-% hint style="warning" icon="pen" %}
+{% hint style="warning" icon="pen" %}
 **Exercici**
 
 El codi exemplificat a sobre d'aquest enunciat és força complex perquè utilitza la recursivitat per recórrer tots els nodes (elements) niats dins del document XML de manera automàtica. Ara però, si la consulta que es vol fer és molt més precisa, el codi es simplifica molt.
