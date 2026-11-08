@@ -751,11 +751,11 @@ La normalització d'un document XML pot comportar canvis importants en la seva e
 {% endhint %}
 
 Evidentment, el mètode `normalize()` no fa canvis estructurals tant radicals com els que s'han mostrat en l'exemple de normalització d'un document XML. Ara però, el que sí que fa és el següent:
-a. Elimina espais en blanc abans o després del node arrel (...<festivals></docufestivalsment>...)
-b. Elimina espais en blanc dins de les etiquetes d'obertura (<...>) i tancament (</...>)
-c. Elimina espais en blanc entre els atributs i els seus valors
-d. Elimina declaracions de *namespace* innecessàries
-e. Elimina salts de línia i espais en text dels atributs, les etiquetes, els comentaris, etc.
+1. Elimina espais en blanc abans o després del node arrel (...<festivals></docufestivalsment>...)
+2. Elimina espais en blanc dins de les etiquetes d'obertura (<...>) i tancament (</...>)
+3. Elimina espais en blanc entre els atributs i els seus valors
+4. Elimina declaracions de *namespace* innecessàries
+5. Elimina salts de línia i espais en text dels atributs, les etiquetes, els comentaris, etc.
 
 ### Guardar el fitxer XML
 Si es vol modificar un fitxer XML ja existent o crear-ne un de nou, caldrà, sí o sí, acabar guardant-lo en memòria permanent (en un fitxer físic). Per aconseguir aquest objectiu es necessiten les classes següents:
