@@ -451,3 +451,454 @@ G01;SÍ;Cyberpunk;CD PROJEKT RED;2020;Action RPG;[PC,PlayStation 5,XboxSeries X|
 ```
 {% endtab %}
 {% endtabs %}
+
+## *DOM Parser*
+Tal com s'ha indicat anteriorment, el *DOM Parser* pot llegir, crear i modificar fitxers XML però, per poder-ho fer, necessita tenir carregat tot el document a RAM, la qual cosa fa que sigui un *parser* més flexible, però també més lent.
+
+Per fer l'explicació d'aquest apartat s'utilitzarà el document XML que es mostra a continuació amb la seva DTD corresponent.
+
+{% tabs %}
+{% tab title="DTD festivals.dtd" %}
+```dtd
+<!ELEMENT festivals (festival+)>
+<!ATTLIST festivals year CDATA #REQUIRED>
+
+<!ELEMENT festival (name, city, venue, dates, price, genres, concerts)>
+<!ATTLIST festival id ID #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT venue (#PCDATA)>
+
+<!ELEMENT dates (start, end)>
+<!ELEMENT start (#PCDATA)>
+<!ELEMENT end (#PCDATA)>
+
+<!ELEMENT price (#PCDATA)>
+<!ATTLIST price currency CDATA #REQUIRED>
+
+<!ELEMENT genres (genre+)>
+<!ELEMENT genre (#PCDATA)>
+
+<!ELEMENT concerts (concert+)>
+
+<!ELEMENT concert (artist, stage, time, duration)>
+<!ELEMENT artist (#PCDATA)>
+<!ELEMENT stage (#PCDATA)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+```
+{% endtab %}
+{% tab title="Document XML festivals.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE festivals SYSTEM "festivals.dtd">
+
+<festivals year="2026">
+    <festival id="F001">
+        <name>Primavera Sound</name>
+        <city>Barcelona</city>
+        <venue>Parc del Fòrum</venue>
+        <dates>
+            <start>2026-06-04</start>
+            <end>2026-06-06</end>
+        </dates>
+        <price currency="EUR">185.00</price>
+        <genres>
+            <genre>Indie</genre>
+            <genre>Rock</genre>
+            <genre>Electrònica</genre>
+        </genres>
+        <concerts>
+            <concert>
+                <artist>Arctic Monkeys</artist>
+                <stage>Estrella Damm</stage>
+                <time>22:30</time>
+                <duration>90</duration>
+            </concert>
+            <concert>
+                <artist>Rosalía</artist>
+                <stage>Amazon Music</stage>
+                <time>00:30</time>
+                <duration>75</duration>
+            </concert>
+            <concert>
+                <artist>Fred again..</artist>
+                <stage>Pull&amp;Bear</stage>
+                <time>02:00</time>
+                <duration>90</duration>
+            </concert>
+        </concerts>
+    </festival>
+
+    <festival id="F002">
+        <name>Viña Rock</name>
+        <city>Villarrobledo</city>
+        <venue>Recinte firal</venue>
+        <dates>
+            <start>2026-04-30</start>
+            <end>2026-05-02</end>
+        </dates>
+        <price currency="EUR">75.00</price>
+        <genres>
+            <genre>Rock</genre>
+            <genre>Punk</genre>
+            <genre>Hip-hop</genre>
+        </genres>
+        <concerts>
+            <concert>
+                <artist>La Raíz</artist>
+                <stage>Negrita</stage>
+                <time>21:00</time>
+                <duration>80</duration>
+            </concert>
+            <concert>
+                <artist>Green Valley</artist>
+                <stage>Villarrobledo</stage>
+                <time>23:00</time>
+                <duration>75</duration>
+            </concert>
+            <concert>
+                <artist>Natos y Waor</artist>
+                <stage>Negrita</stage>
+                <time>01:00</time>
+                <duration>90</duration>
+            </concert>
+        </concerts>
+    </festival>
+
+    <festival id="F003">
+        <name>Sónar</name>
+        <city>Barcelona</city>
+        <venue>Fira Barcelona</venue>
+        <dates>
+            <start>2026-06-18</start>
+            <end>2026-06-20</end>
+        </dates>
+        <price currency="EUR">160.00</price>
+        <genres>
+            <genre>Techno</genre>
+            <genre>House</genre>
+            <genre>Experimental</genre>
+        </genres>
+        <concerts>
+            <concert>
+                <artist>Amelie Lens</artist>
+                <stage>SónarClub</stage>
+                <time>23:30</time>
+                <duration>90</duration>
+            </concert>
+            <concert>
+                <artist>Charlotte de Witte</artist>
+                <stage>SónarPub</stage>
+                <time>01:00</time>
+                <duration>90</duration>
+            </concert>
+            <concert>
+                <artist>Anyma</artist>
+                <stage>SónarLab</stage>
+                <time>03:00</time>
+                <duration>75</duration>
+            </concert>
+        </concerts>
+    </festival>
+</festivals>
+```
+{% endtab %}
+{% endtabs %}
+
+### Càrrega del fitxer XML a memòria
+Si es vol llegir o modificar un fitxer XML ja existent, el primer pas que cal fer sempre és carregar-lo a memòria. Per aconseguir aquest objectiu es necessiten les classes següents:
+1. `DocumentBuilderFactory`: és la *factoria* que permet crear el *parser* DOM.
+2. `DocumentBuilder`: la seva responsabilitat és carregar a memòria l'estructura d'arbre corresponent al fitxer XML que s'està gestionant.
+3. `Document`: representa tot el document XML, al qual accedeix a través del seu element arrel, i ofereix totes les funcions necessàries per recórrer l'estructura d'arbre i crear, modificar o eliminar nodes (elements XML).
+
+Tot plegat es combina tal com mostra el codi següent:
+```java
+package cat.inscaparrella.dam2.utils;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+
+public class FestivalsDOMParser {
+    private Document xmlDoc;
+    
+    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dbuilder = dfactory.newDocumentBuilder();
+        this.xmlDoc = dbuilder.parse(path);
+
+        this.xmlDoc.getDocumentElement().normalize();
+    }
+}
+
+```
+
+Les dues primeres línies del mètode `loadXMLFile()` creen els objectes `DocumentBuilderFactory` i `DocumentBuilder`. Tot seguit, i a partir del `DocumentBuilder`, es crea el `Document` fent un `parse()` del fitxer XML, és a dir, carregant-ne tots els nodes (elements) a memòria i retornant la referència al node arrel, a través del qual es podrà recórrer la resta.
+
+L'última instrucció del mètode accedeix al contingut del node arrel i normalitza el document. La normalització consisteix en eliminar nodes buits i fusionar nodes equivalents per tal d'evitar dades duplicades. A continuació es mostra un exemple d'aquests procés:
+
+{% tabs %}
+{% tab title="Document XML festivals.xml no normalitzat" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<festivals>
+    <festival id="F001">
+        <name>Primavera Sound</name>
+        <city>Barcelona</city>
+        <concerts>
+            <concert>
+                <artist>Arctic Monkeys</artist>
+                <genre>Rock</genre>
+                <country>United Kingdom</country>
+            </concert>
+            <concert>
+                <artist>Rosalía</artist>
+                <genre>Pop</genre>
+                <country>Spain</country>
+            </concert>
+        </concerts>
+    </festival>
+
+    <festival id="F002">
+        <name>Viña Rock</name>
+        <city>Villarrobledo</city>
+        <concerts>
+            <concert>
+                <artist>Rosalía</artist>
+                <genre>Pop</genre>
+                <country>Spain</country>
+            </concert>
+            <concert>
+                <artist>Arctic Monkeys</artist>
+                <genre>Rock</genre>
+                <country>United Kingdom</country>
+            </concert>
+        </concerts>
+    </festival>
+</festivals>
+```
+{% endtab %}
+{% tab title="Document XML festivals.xml normalitzat" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<festivalData>
+    <festivals>
+        <festival id="F001">
+            <name>Primavera Sound</name>
+            <city>Barcelona</city>
+        </festival>
+
+        <festival id="F002">
+            <name>Viña Rock</name>
+            <city>Villarrobledo</city>
+        </festival>
+    </festivals>
+
+    <artists>
+        <artist id="A001">
+            <name>Arctic Monkeys</name>
+            <genre>Rock</genre>
+            <country>United Kingdom</country>
+        </artist>
+
+        <artist id="A002">
+            <name>Rosalía</name>
+            <genre>Pop</genre>
+            <country>Spain</country>
+        </artist>
+    </artists>
+
+    <concerts>
+        <concert id="C001">
+            <festivalRef>F001</festivalRef>
+            <artistRef>A001</artistRef>
+        </concert>
+
+        <concert id="C002">
+            <festivalRef>F001</festivalRef>
+            <artistRef>A002</artistRef>
+        </concert>
+
+        <concert id="C003">
+            <festivalRef>F002</festivalRef>
+            <artistRef>A002</artistRef>
+        </concert>
+
+        <concert id="C004">
+            <festivalRef>F002</festivalRef>
+            <artistRef>A001</artistRef>
+        </concert>
+    </concerts>
+</festivalData>
+```
+{% endtab %}
+{% endtabs %}
+
+Com es pot veure, en el primer cas, les dades dels artistes *Arctic Monkeys* i *Rosalía* aparéixen duplicades perquè participen tant en el *Primavera Sound* com en el *Viña Rock*. Això implica que, en cas de voler modificar o esborrar les dades d'aquesta cantant, s'haurà de recórrer tot el document per trobar-ne totes les instàncies. Si no es fa així, el fitxer acabarà contenint dades obsoletes o inconsistents.
+
+En canvi, en el segon cas, els elements del document s'han reestructurat per tal d'evitar la repetició de la informació (és un procés similar al de la normalització de les bases de dades relacionals).
+
+{% hint style="warning" %}
+**Atenció**
+
+La normalització d'un document XML pot comportar canvis importants en la seva estructura, per tant, també caldrà modificar la DTD (o *Schema*) associada.
+{% endhint %}
+
+Evidentment, el mètode `normalize()` no fa canvis estructurals tant radicals com els que s'han mostrat en l'exemple de normalització d'un document XML. Ara però, el que sí que fa és el següent:
+a. Elimina espais en blanc abans o després del node arrel (...<festivals></docufestivalsment>...)
+b. Elimina espais en blanc dins de les etiquetes d'obertura (<...>) i tancament (</...>)
+c. Elimina espais en blanc entre els atributs i els seus valors
+d. Elimina declaracions de *namespace* innecessàries
+e. Elimina salts de línia i espais en text dels atributs, les etiquetes, els comentaris, etc.
+
+### Lectura del fitxer XML
+Per poder llegir el document s'ha d'utiltizar el mètode `getElementsByTagName()` de la classe `Document`. Aquest mètode retorna tots els elements (etiquetes) d'un tipus dins d'un objecte de tipus `NodeList`, que no és res més que un llistat d'objectes `Node` (cada `Node` representa un element o etiqueta).
+
+El llistat de nodes `NodeList` es pot recórrer iterativament sabent-ne la seva mida mitjançant el mètode `getLength()` i accedint a cada `Node` a través del mètode `item()`. A partir de cada objecte `Node` es pot
+1. accedir als seus fills a través dels mètodes `getChildNodes()` (retorna un `NodeList`), `getFirstChild()` (retorna un `Node`) i `getLastChild()` (retorna un `Node`);
+2. accedir al seu `Node` *parent* amb el mètode `getParentNode()`;
+3. obtenir-ne el tipus (etiqueta, atribut, etc.) mitjançant el mètode `getNodeType()`;
+4. obtenir-ne el nom amb el mètode `getNodeName()`;
+5. obtenir-ne el valor amb el mètode `getTextContent()`;
+6. obtenir-ne els atributs amb el mètode `getAttributes()` (retorna un `NamedNodeMap`, un *map* de nodes) i
+7. accedir a nodes *germans* (nodes que es troben dins del mateix nivell de l'arbre DOM i pengen del mateix `Node` *parent*) mitjançant els mètodes `getNextSibling()` i `getPreviousSibling()`.
+
+Per veure altres mètodes de consulta de la classe `Node`, consulteu l'API de [`Node`](https://docs.oracle.com/en/java/javase/25/docs/api/java.xml/org/w3c/dom/Node.html) i de [`NamedNodeMap`](https://docs.oracle.com/en/java/javase/25/docs/api/java.xml/org/w3c/dom/NamedNodeMap.html).
+
+A continuació es mostra el codi necessari per recórrer tot el fitxer `festivals.xml` (utilitza una funció recursiva per accedir als `childs` dels diversos nodes)
+
+{% tabs %}
+{% tab title="Programa FestivalsDOMParserMain.java" %}
+```java
+package cat.inscaparrella.dam2.view;
+
+import cat.inscaparrella.dam2.utils.FestivalsDOMParser;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+
+public class FestivalsDOMParserMain {
+    public static void main() throws ParserConfigurationException, SAXException, IOException {
+        FestivalsDOMParser domParser = new FestivalsDOMParser();
+        domParser.loadXMLFile("xml_files/festivals.xml");
+        System.out.println(domParser.toString());
+    }
+}
+```
+{% endtab %}
+{% tab title="FestivalDOMParser.java" %}
+```java
+package cat.inscaparrella.dam2.utils;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+
+public class FestivalsDOMParser {
+    private Document xmlDoc;
+
+    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dbuilder = dfactory.newDocumentBuilder();
+        this.xmlDoc = dbuilder.parse(path);
+
+        this.xmlDoc.getDocumentElement().normalize();
+    }
+
+    @Override
+    public String toString() {
+        NodeList nodes = this.xmlDoc.getElementsByTagName("festivals");
+        return this.traverseNodeList(nodes, "");
+    }
+
+    private String traverseNodeList(NodeList nodes, String prefix) {
+        String str = "";
+
+        Node currentNode;
+
+        NamedNodeMap attributes;
+        Node currentAttribute;
+
+        for(int i=0; i<nodes.getLength(); i++) {
+            currentNode = nodes.item(i);
+            str += this.getNodeStringData(currentNode, prefix);
+
+            if(currentNode.hasAttributes()) {
+                attributes = currentNode.getAttributes();
+                for(int j=0; j<attributes.getLength(); j++) {
+                    currentAttribute = attributes.item(i);
+                    if(currentAttribute != null)
+                        str += this.getNodeStringData(currentAttribute, prefix + "\t\t");
+                }
+            }
+            if(currentNode.hasChildNodes()) {
+                str += this.traverseNodeList(currentNode.getChildNodes(), prefix + "\t");
+            }
+        }
+
+        return str;
+    }
+
+    private String getNodeStringData(Node node, String prefix) {
+        if(node.getNodeType() == Node.TEXT_NODE) return "";
+
+        String str = prefix + node.getNodeName();
+        short nodeType;
+
+        nodeType = node.getNodeType();
+        if(nodeType == Node.ELEMENT_NODE) {
+            str += " (ETIQUETA)";
+            if(node.getChildNodes().getLength() > 0
+                    && node.getChildNodes().item(0).getNodeType() == Node.TEXT_NODE
+                    && !node.getChildNodes().item(0).getTextContent().isBlank()) {
+                //Text content will allways be the first child
+                str += ": " + node.getChildNodes().item(0).getTextContent();
+            }
+        } else if(nodeType == Node.ATTRIBUTE_NODE && node.getChildNodes().item(0).getNodeType() == Node.TEXT_NODE) {
+            str += " (ATRIBUT)";
+            if(node.getChildNodes().getLength() > 0) {
+                //Text content will allways be the first child
+                str += ": " + node.getChildNodes().item(0).getTextContent();
+            }
+        }
+
+        return str + "\n";
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+% hint style="warning" icon="pen" %}
+**Exercici**
+
+El codi exemplificat a sobre d'aquest enunciat és força complex perquè utilitza la recursivitat per recórrer tots els nodes (elements) niats dins del document XML de manera automàtica. Ara però, si la consulta que es vol fer és molt més precisa, el codi es simplifica molt.
+
+Donat el fitxer `festivals.xml` que s'utilitza per il·lustrar el capítol, crea un programa que mostri per pantalla quans festivals té emmagatzemats. Per cada fesival haurà de mostrar-ne el nom i la ciutat on es farà.
+
+La sortida haurà de ser una cosa similar a la següent:
+```txt
+Nombre de festivals: 3
+
+Primavera Sound - Barcelona
+Viña Rock - Villarrobledo
+Sónar - Barcelona
+```
+
+Una possible ajuda per fer l'exercici sense haver de recórrer tots els *childs* d'un node. Si, donat un `Node` feu cast a [`Element`](https://docs.oracle.com/en/java/javase/25/docs/api/java.xml/org/w3c/dom/Element.html) tindreu accés directe als mètodes `getElementsByTagName()`, `getAttributeNode()`, `getAttribute()`, entre altres. Això pot facilitar la implementació de l'exercici perquè permet accedir a les etiquetes i atributs a través del seu nom més directament.
+{% endhint %}
+
