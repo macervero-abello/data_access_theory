@@ -757,7 +757,48 @@ c. Elimina espais en blanc entre els atributs i els seus valors
 d. Elimina declaracions de *namespace* innecessàries
 e. Elimina salts de línia i espais en text dels atributs, les etiquetes, els comentaris, etc.
 
-### Lectura del fitxer XML
+### Guardar el fitxer XML
+Si es vol modificar un fitxer XML ja existent o crear-ne un de nou, caldrà, sí o sí, acabar guardant-lo en memòria permanent (en un fitxer físic). Per aconseguir aquest objectiu es necessiten les classes següents:
+1. `DOMSource`: fa de suport per poder transformar l'arbre DOM que hi ha emmagatzemat en memòria RAM a un fitxer físic.
+2. `TransformerFactory`: és la *factoria* que permet crear el *transformador* DOM.
+3. `Transformer`: la seva responsabilitat és transformar l'arbre DOM al resultat desitjat, normalment, un fitxer físic, amb l'ajuda del `DOMSource`.
+4. `StreamResult`: gestiona el flux de dades que cal escriure a fitxer un cop el DOM de l'XML ha estat transformat.
+
+Tot plegat es combina tal com mostra el codi següent:
+```java
+package cat.inscaparrella.dam2.utils;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.IOException;
+
+public class FestivalsDOMParser {
+    private Document xmlDoc;
+
+    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {...}
+
+    public void saveXMLFile(String path) throws TransformerException {
+        DOMSource source = new DOMSource(this.xmlDoc);
+        TransformerFactory tfactory = TransformerFactory.newInstance();
+        Transformer transformer = tfactory.newTransformer();
+        
+        StreamResult result = new StreamResult(path);
+        transformer.transform(source, result);
+    }
+```
+
+Les tres primeres línies del mètode `saveXMLFile()` creen els objectes `DOMSource`, `TransformerFactory` i `Transformer`. A continuació es crea el flux de dades que s'han d'escriure a fitxer `StreamResult`. Finalment, s'obté el fitxer físic utilitzant el gestor del DOM `DOMSource` i el flux de dades `StreamResult`.
+
+### Lectura del fitxer XML (recorregut dels seus elements)
 Per poder llegir el document s'ha d'utiltizar el mètode `getElementsByTagName()` de la classe `Document`. Aquest mètode retorna tots els elements (etiquetes) d'un tipus dins d'un objecte de tipus `NodeList`, que no és res més que un llistat d'objectes `Node` (cada `Node` representa un element o etiqueta).
 
 El llistat de nodes `NodeList` es pot recórrer iterativament sabent-ne la seva mida mitjançant el mètode `getLength()` i accedint a cada `Node` a través del mètode `item()`. A partir de cada objecte `Node` es pot
@@ -806,18 +847,19 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
 
 public class FestivalsDOMParser {
     private Document xmlDoc;
 
-    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dbuilder = dfactory.newDocumentBuilder();
-        this.xmlDoc = dbuilder.parse(path);
+    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {...}
 
-        this.xmlDoc.getDocumentElement().normalize();
-    }
+    public void saveXMLFile(String path) throws TransformerException {...}
 
     @Override
     public String toString() {
@@ -902,3 +944,186 @@ Sónar - Barcelona
 Una possible ajuda per fer l'exercici sense haver de recórrer tots els *childs* d'un node. Si, donat un `Node` feu cast a [`Element`](https://docs.oracle.com/en/java/javase/25/docs/api/java.xml/org/w3c/dom/Element.html) tindreu accés directe als mètodes `getElementsByTagName()`, `getAttributeNode()`, `getAttribute()`, entre altres. Això pot facilitar la implementació de l'exercici perquè permet accedir a les etiquetes i atributs a través del seu nom més directament.
 {% endhint %}
 
+### Modificació del fitxer XML
+Per exemplificar la modificació de les dades d'un fitxer XML ens centrarem en
+1. canviar el valor d'una dada ja existent i
+2. eliminar un element (etiqueta o node).
+
+No s'exemplificarà cap modificació que impliqui afegir nous elements perquè es pot extrapolar aquest tipus de canvi a partir de la creació d'un nou fitxer XML, que s'explica en el següent apartat.
+
+#### Canviar el valor d'una dada ja existent
+Suposem que volem canviar el preu del *Primavera Sound*; per fer-ho caldrà
+1. accedir al festival que té aquest *name*;
+2. accedir al seu *price* i modificar-lo i 
+3. guardar el document amb les noves dades
+
+El codi que assoleix aquest objectiu és el següent:
+
+{% tabs %}
+{% tab title="Programa FestivalsDOMParserMain.java" %}
+```java
+package cat.inscaparrella.dam2.view;
+
+import cat.inscaparrella.dam2.utils.FestivalsDOMParser;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
+
+public class FestivalsDOMParserMain {
+    public static void main() throws ParserConfigurationException, SAXException, IOException, TransformerException {
+        FestivalsDOMParser domParser = new FestivalsDOMParser();
+        domParser.loadXMLFile("xml_files/festivals.xml");
+        domParser.changeFestivalPrice("Primavera Sound", 90.0f);
+        domParser.saveXMLFile("xml_files/changed_festivals.xml");
+    }
+}
+```
+{% endtab %}
+{% tab title="FestivalDOMParser.java" %}
+```java
+package cat.inscaparrella.dam2.utils;
+
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.IOException;
+
+public class FestivalsDOMParser {
+    private Document xmlDoc;
+
+    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {...}
+
+    public void changeFestivalPrice(String festivalName, float price) {
+        NodeList nodes = this.xmlDoc.getElementsByTagName("festival");
+        Element festivalNode;
+        Node nameNode, priceNode;
+
+        int i=0;
+        boolean found = false;
+        while(i<nodes.getLength() && !found) {
+            festivalNode = (Element) nodes.item(i);
+            nameNode = festivalNode.getElementsByTagName("name").item(0);
+            if(nameNode.getTextContent().equals(festivalName)) {
+                priceNode = festivalNode.getElementsByTagName("price").item(0);
+                priceNode.setTextContent(Float.toString(price));
+
+                found = true;
+            }
+            i++;
+        }
+    }
+
+    public void saveXMLFile(String path) throws TransformerException {...}
+
+    @Override
+    public String toString() {...}
+
+    private String traverseNodeList(NodeList nodes, String prefix) {...}
+
+    private String getNodeStringData(Node node, String prefix) {...}
+}
+```
+{% endtab %}
+{% endtabs %}
+
+La clau que fa que aquest codi no hagi de recórrer tots els nodes és el *cast* que es fa com a primera instrucció dins de la sentència `for`. En passar el `Node` a `Element` s'obté accés als mètode `getElementsByTagName()`, la qual cosa fa que es puguin demanar, directament, les etiquetes `name` i `price` de cada etiqueta `festival` (sense necessitat de visitar tots els *child*).
+
+
+#### Eliminar un element
+Suposem que volem eliminat el festival *Sónar*ç; per fer-ho caldrà
+1. accedir al festival que té aquest *name*;
+2. eliminar-lo dels *child* de l'etiqueta *festivals* i
+3. guardar el document amb les noves dades
+
+El codi que assoleix aquest objectiu és el següent:
+
+{% tabs %}
+{% tab title="Programa FestivalsDOMParserMain.java" %}
+```java
+package cat.inscaparrella.dam2.view;
+
+import cat.inscaparrella.dam2.utils.FestivalsDOMParser;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
+
+public class FestivalsDOMParserMain {
+    public static void main() throws ParserConfigurationException, SAXException, IOException, TransformerException {
+        FestivalsDOMParser domParser = new FestivalsDOMParser();
+        domParser.loadXMLFile("xml_files/festivals.xml");
+        domParser.deleteFestival("Sónar");
+        domParser.saveXMLFile("xml_files/deleted_festivals.xml");
+    }
+}
+```
+{% endtab %}
+{% tab title="FestivalDOMParser.java" %}
+```java
+package cat.inscaparrella.dam2.utils;
+
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.IOException;
+
+public class FestivalsDOMParser {
+    private Document xmlDoc;
+
+    public void loadXMLFile(String path) throws ParserConfigurationException, SAXException, IOException {...}
+
+    public void changeFestivalPrice(String festivalName, float price) {...}
+
+    public void deleteFestival(String festivalName) {
+        Node root = this.xmlDoc.getElementsByTagName("festivals").item(0);
+
+        NodeList nodes = this.xmlDoc.getElementsByTagName("festival");
+        Element festivalNode;
+        Node nameNode;
+
+        int i=0;
+        boolean found = false;
+        while(i<nodes.getLength() && !found) {
+            festivalNode = (Element) nodes.item(i);
+            nameNode = festivalNode.getElementsByTagName("name").item(0);
+            if(nameNode.getTextContent().equals(festivalName)) {
+                root.removeChild(festivalNode);
+                found = true;
+            }
+            i++;
+        }
+    }
+
+    public void saveXMLFile(String path) throws TransformerException {...}
+
+    @Override
+    public String toString() {...}
+
+    private String traverseNodeList(NodeList nodes, String prefix) {...}
+
+    private String getNodeStringData(Node node, String prefix) {...}
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Com es pot comprovar, és un codi molt similar a l'anterior. La diferència és que, un cop trobat el festival desitjat, s'esborra del node arrel (variable `root`) utilitzant el mètode `removeChild()`.
