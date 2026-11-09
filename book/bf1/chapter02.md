@@ -1127,3 +1127,181 @@ public class FestivalsDOMParser {
 {% endtabs %}
 
 Com es pot comprovar, és un codi molt similar a l'anterior. La diferència és que, un cop trobat el festival desitjat, s'esborra del node arrel (variable `root`) utilitzant el mètode `removeChild()`.
+
+### Creació del fitxer XML
+Per fer més fàcil i entenedora l'explicació, aquest apartat utilitza l'exemple del fitxer XML que es mostra a continuació, molt més reduït que el fitxer `festivals.xml` però, al mateix temps, complet per poder analitzar tots els elements necessaris.
+
+{% tabs %}
+{% tab title="DTD books.dtd" %}
+```dtd
+<!ELEMENT books (book+)>
+
+<!ELEMENT book (title, author, year)>
+<!ATTLIST book isbn13 CDATA #REQUIRED>
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+```
+{% endtab %}
+{% tab title="Document XML books.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM "books.dtd">
+
+<books>
+    <book isbn13="978-8445000656">
+        <title>The Hobbit</title>
+        <author>J.R.R. Tolkien</author>
+        <year>1937</year>
+    </book>
+
+    <book isbn13="978-8499890944">
+        <title>1984</title>
+        <author>George Orwell</author>
+        <year>1949</year>
+    </book>
+</books>
+```
+{% endtab %}
+{% endtabs %}
+
+Per poder crear un nou fitxer XML es necessita fer diversos passos:
+1. Crear el `Document` que gestionarà l'arbre DOM a memòria RAM
+2. Crear els `Element` necessaris mitjançant el mètode `createElement()`, que representen els diversos nodes (etiquetes) del document
+3. En cas de ser necessari, definir els atributs d'aquests `Element` mitjançant el mètode `setAttribute()`
+4. Anar afegint els `Element` a l'estructura DOM utilitzant el mètode `appendChild()`
+5. Finalment, guardar l'estructura DOM en un fitxer físic a memòria permanent
+
+El codi associat a totes aquestes tasques és el següent:
+
+{% tabs %}
+{% tab title="Classe Book.java" %}
+```java
+package cat.inscaparrella.dam2.model;
+
+public class Book {
+    private String isbn13;
+    private String title;
+    private String author;
+    private int year;
+
+    public Book(String isbn13, String title, String author, int year) {
+        this.isbn13 = isbn13;
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    public String getISBN13() { return this.isbn13; }
+    public String getTitle() { return this.title; }
+    public String getAuthor() { return this.author; }
+    public int getYear() { return this.year; }
+}
+
+```
+{% endtab %}
+{% tab title="Classe BooksDOMParser.java" %}
+```java
+package cat.inscaparrella.dam2.utils;
+
+import cat.inscaparrella.dam2.model.Book;
+import org.w3c.dom.*;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.util.List;
+
+public class BooksDOMParser {
+    private Document xmlDoc;
+
+    public void createXMLFile(List<Book> books) throws ParserConfigurationException {
+        DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dbuilder = dfactory.newDocumentBuilder();
+        this.xmlDoc = dbuilder.newDocument();
+
+        //Create root element
+        Element root = this.xmlDoc.createElement("books");
+        this.xmlDoc.appendChild(root);
+
+        Element book, title, author, year;
+        Text content;
+        for(int i=0; i<books.size(); i++) {
+            //Create book i
+            book = this.xmlDoc.createElement("book");
+
+            //Add attribute ISBN13
+            book.setAttribute("isbn13", books.get(i).getISBN13());
+
+            //Create element title with its text content & append to book
+            title = this.xmlDoc.createElement("title");
+            content = this.xmlDoc.createTextNode(books.get(i).getTitle());
+            title.appendChild(content);
+            book.appendChild(title);
+
+            //Create element author with its text content & append to book
+            author = this.xmlDoc.createElement("author");
+            content = this.xmlDoc.createTextNode(books.get(i).getAuthor());
+            author.appendChild(content);
+            book.appendChild(author);
+
+            //Create element year with its text content & append to book
+            year = this.xmlDoc.createElement("year");
+            content = this.xmlDoc.createTextNode(Integer.toString(books.get(i).getYear()));
+            year.appendChild(content);
+            book.appendChild(year);
+
+            //Append book i to root
+            root.appendChild(book);
+        }
+    }
+
+    public void saveXMLFile(String path) throws TransformerException {
+        DOMSource source = new DOMSource(this.xmlDoc);
+        TransformerFactory tfactory = TransformerFactory.newInstance();
+        Transformer transformer = tfactory.newTransformer();
+
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+        transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "books.dtd");
+
+        StreamResult result = new StreamResult(path);
+        transformer.transform(source, result);
+    }
+}
+```
+{% endtab %}
+{% tab title="Programa BooksDOMParserMain.java" %}
+```java
+package cat.inscaparrella.dam2.view;
+
+import cat.inscaparrella.dam2.model.Book;
+import cat.inscaparrella.dam2.utils.BooksDOMParser;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BooksDOMParserMain {
+    public static void main() throws ParserConfigurationException, TransformerException {
+        List<Book> books = new ArrayList<>();
+        BooksDOMParser domParser = new BooksDOMParser();
+
+        books.add(new Book("978-8445000656", "The Hobbit", "J.R.R. Tolkien", 1937));
+        books.add(new Book("978-8499890944", "1984", "George Orwell", 1949));
+
+        domParser.createXMLFile(books);
+        domParser.saveXMLFile("xml_files/books.xml");
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
