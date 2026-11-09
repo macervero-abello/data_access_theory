@@ -1305,3 +1305,31 @@ public class BooksDOMParserMain {
 ```
 {% endtab %}
 {% endtabs %}
+
+TODO: explicació del codi
+
+{% hint style="warning" icon="pen" %}
+**Exercici**
+
+Creeu un programa que permeti exportar el fitxer CSV que es mostra a continuació a un nou fitxer XML
+```csv
+ID,RESTAURANT,CITY,DISH,CATEGORY,PRICE,VEGETARIAN
+1,La Tagliatella,Lleida,Espaguetis a la carbonara,Pasta,14.50,false
+1,La Tagliatella,Lleida,Penne a l'arrabbiata,Pasta,12.90,true
+1,La Tagliatella,Lleida,Tiramisú,Postres,6.50,true
+2,Burger Lab,Barcelona,Hamburguesa clàssica,Hamburguesa,12.50,false
+2,Burger Lab,Barcelona,Hamburguesa doble amb formatge,Hamburguesa,15.90,false
+2,Burger Lab,Barcelona,Hamburguesa vegetal,Hamburguesa,13.50,true
+2,Burger Lab,Barcelona,Brownie de xocolata,Postres,5.90,true
+3,Sushi House,Girona,Nigiri de salmó,Sushi,8.50,false
+3,Sushi House,Girona,Maki d'alvocat,Sushi,6.90,true
+3,Sushi House,Girona,Ramen de pollastre,Fideus,13.90,false
+4,Green Bowl,Tarragona,Bol de quinoa,Amanides,11.50,true
+4,Green Bowl,Tarragona,Bol de pollastre,Amanides,13.90,false
+4,Green Bowl,Tarragona,Batut de fruites,Begudes,4.50,true
+```
+
+1. Crea la DTD associada a l'XML que cal generar
+2. Implementa l'exportador
+3. Exporta el document XML amb identació i `DOCTYPE`
+{% endhint %}
