@@ -639,7 +639,9 @@ public class FestivalsDOMParser {
 
 ```
 
-Les dues primeres línies del mètode `loadXMLFile()` creen els objectes `DocumentBuilderFactory` i `DocumentBuilder`. Tot seguit, i a partir del `DocumentBuilder`, es crea el `Document` fent un `parse()` del fitxer XML, és a dir, carregant-ne tots els nodes (elements) a memòria i retornant la referència al node arrel, a través del qual es podrà recórrer la resta.
+Les dues primeres línies del mètode `loadXMLFile()` creen els objectes `DocumentBuilderFactory` i `DocumentBuilder`. Tot seguit, i a partir del `DocumentBuilder`, es crea el `Document` fent un `parse()` del fitxer XML, és a dir, carregant-ne tots els nodes (elements) a memòria, en estructura d'arbre, i retornant la referència al node arrel, a través del qual es podrà recórrer la resta. La imatge següent mostra un exemple de l'estructura arbòria que es crea a memòria:
+
+[Estructura de l'arbre DOM que es crea a memòria RAM](img/ch02/dom_tree.png)
 
 L'última instrucció del mètode accedeix al contingut del node arrel i normalitza el document. La normalització consisteix en eliminar nodes buits i fusionar nodes equivalents per tal d'evitar dades duplicades. A continuació es mostra un exemple d'aquests procés:
 
