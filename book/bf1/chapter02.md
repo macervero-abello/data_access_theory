@@ -1170,8 +1170,9 @@ Per poder crear un nou fitxer XML es necessita fer diversos passos:
 1. Crear el `Document` que gestionarà l'arbre DOM a memòria RAM
 2. Crear els `Element` necessaris mitjançant el mètode `createElement()`, que representen els diversos nodes (etiquetes) del document
 3. En cas de ser necessari, definir els atributs d'aquests `Element` mitjançant el mètode `setAttribute()`
-4. Anar afegint els `Element` a l'estructura DOM utilitzant el mètode `appendChild()`
-5. Finalment, guardar l'estructura DOM en un fitxer físic a memòria permanent
+4. Si l'`Element` és una etiqueta amb contingut, s'ha d'utilitzar el mètode `createTextNode()` per crear el text associat
+5. Anar afegint els `Element` a l'estructura DOM utilitzant el mètode `appendChild()`
+6. Finalment, guardar l'estructura DOM en un fitxer físic a memòria permanent
 
 El codi associat a totes aquestes tasques és el següent:
 
@@ -1306,7 +1307,13 @@ public class BooksDOMParserMain {
 {% endtab %}
 {% endtabs %}
 
-TODO: explicació del codi
+De tot el codi presentat cal parar atenció als punts següents:
+1. Per crear un nou document XML cal utilitzar el mètode `newDocument()` de la classe `DocumentBuilder`, tal com mostra la classe `BooksDOMParser` (en el cas de la lectura, s'utilitzava el mètode `parser()`).
+2. En el moment de guardar el document a fitxer permanent, s'ha de configurar correctament l'objecte `Transformer` per tal que crei una estructura *user-friendly*, és a dir, que sigui fàcil de llegir gràcies a l'ús de salts de línia i de tabulacions. Això s'assoleix configurant la identació mitjançant les instruccions
+    1. `setOutputProperty(OutputKeys.INDENT, "yes")`: activa la tabulació
+    2. `setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4")`: estableix que la tabulació ocuparà 4 espais
+En cas que no es configuri aquest paràmetre, el fitxer creat tindrà tot el contingut escrit en una única línia.
+3. Addicionalment, també cal configurar l'objecte `Transformer` per tal que afegeixi la definició de la DTD corresponent, mitjançant la instrucció `setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "books.dtd")`
 
 {% hint style="warning" icon="pen" %}
 **Exercici**
